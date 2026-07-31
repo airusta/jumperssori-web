@@ -41,7 +41,8 @@
   .menu a:hover{color:var(--naranja)}
   .menu .cta{color:#fff;background:var(--azul-d);padding:.55em 1.1em;border-radius:999px}
   header.solid .menu .cta{background:var(--azul-d);color:#fff}
-  .burger{display:none}
+  .burger{display:none;background:none;border:0;font-size:1.7rem;line-height:1;cursor:pointer;color:#fff;padding:.2em}
+  header.solid .burger{color:var(--tinta)}
 
   /* HERO */
   .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;
@@ -123,9 +124,23 @@
     .split,.vivo,.contacto{grid-template-columns:1fr}
     .grid4{grid-template-columns:1fr 1fr}
     .grid2{grid-template-columns:1fr}
-    .menu{display:none}.vivo{padding:40px}
+    .vivo{padding:40px}
+    .scroll{display:none}
+    .burger{display:block}
+    header.open{background:rgba(255,255,255,.97);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--linea)}
+    header.open .logo,header.open .burger{color:var(--tinta)}
+    .menu{position:fixed;top:74px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1.3rem;
+      background:#fff;padding:22px 24px 30px;box-shadow:0 16px 30px -14px rgba(22,34,46,.35);
+      transform:translateY(-135%);transition:transform .32s ease;pointer-events:none}
+    header.open .menu{transform:none;pointer-events:auto}
+    .menu a{color:var(--tinta);font-size:1.1rem}
+    .menu .cta{align-self:stretch;text-align:center;color:#fff}
   }
-  @media(max-width:560px){.grid4{grid-template-columns:1fr}}
+  @media(max-width:560px){
+    .grid4{grid-template-columns:1fr}
+    .hero .actions{flex-direction:column}
+    .hero .actions .btn{width:100%;justify-content:center}
+  }
 </style>
 </head>
 <body>
@@ -133,7 +148,8 @@
 <header id="hdr">
   <div class="wrap nav">
     <a href="#top" class="logo"><span class="mark">🚀</span> Jumperssori</a>
-    <nav class="menu">
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="menu" id="menu">
       <a href="#somos">Nosotros</a>
       <a href="#pilares">Propuesta</a>
       <a href="#sedes">Sedes</a>
@@ -270,6 +286,9 @@
   const hdr=document.getElementById('hdr');
   const onScroll=()=>hdr.classList.toggle('solid',window.scrollY>40);
   onScroll();addEventListener('scroll',onScroll);
+  const burger=document.getElementById('burger');
+  burger.addEventListener('click',()=>{const o=hdr.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>{hdr.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
