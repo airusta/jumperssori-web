@@ -1,0 +1,5 @@
+# El hosting es Linux: forzar LF en archivos que se ejecutan/parsean del lado servidor
+.cpanel.yml text eol=lf
+*.sh        text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
