@@ -13,6 +13,9 @@
     --naranja:#ff914d; --amarillo:#ffe680;
     --tinta:#16222e; --gris:#5b6b78; --slate:#f5f8fb; --linea:#e6edf3;
     --radio:18px; --max:1180px;
+    /* Curvas de easing fuertes (Emil Kowalski / animations.dev) */
+    --ease-out:cubic-bezier(0.23,1,0.32,1);
+    --ease-drawer:cubic-bezier(0.32,0.72,0,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -21,13 +24,19 @@
   h1,h2,h3{line-height:1.08;letter-spacing:-.02em}
   a{color:inherit;text-decoration:none}
   .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--azul-d)}
-  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:700;padding:.85em 1.5em;border-radius:999px;transition:.2s;cursor:pointer;border:2px solid transparent}
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:700;padding:.85em 1.5em;border-radius:999px;cursor:pointer;border:2px solid transparent;
+    transition:transform .18s var(--ease-out),background .2s ease,border-color .2s ease,color .2s ease}
   .btn-p{background:var(--naranja);color:#fff}
-  .btn-p:hover{background:#ff7a29;transform:translateY(-2px)}
   .btn-g{border-color:rgba(255,255,255,.6);color:#fff}
-  .btn-g:hover{background:rgba(255,255,255,.12)}
   .btn-o{border-color:var(--azul-d);color:var(--azul-d)}
-  .btn-o:hover{background:var(--azul);border-color:var(--azul);color:#fff}
+  /* Feedback al presionar (Emil): la UI "escucha" el toque */
+  .btn:active{transform:scale(.96)}
+  /* Hover solo en dispositivos con puntero real (evita hover pegado en touch) */
+  @media(hover:hover) and (pointer:fine){
+    .btn-p:hover{background:#ff7a29;transform:translateY(-2px)}
+    .btn-g:hover{background:rgba(255,255,255,.12)}
+    .btn-o:hover{background:var(--azul);border-color:var(--azul);color:#fff}
+  }
 
   /* NAV */
   header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
@@ -73,8 +82,11 @@
 
   /* PILARES */
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px}
-  .card{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:30px 26px;transition:.25s}
-  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -20px rgba(30,58,82,.35);border-color:transparent}
+  .card{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:30px 26px;
+    transition:transform .28s var(--ease-out),box-shadow .28s var(--ease-out),border-color .28s ease}
+  @media(hover:hover) and (pointer:fine){
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -20px rgba(30,58,82,.35);border-color:transparent}
+  }
   .card .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.5rem;margin-bottom:18px;background:var(--slate)}
   .card h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
   .card p{color:var(--gris);font-size:.96rem}
@@ -117,8 +129,12 @@
   footer .fmenu a:hover{color:var(--naranja)}
   footer .copy{margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.85rem;opacity:.7}
 
-  .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
   .reveal.in{opacity:1;transform:none}
+  /* Stagger: las tarjetas de una fila entran en cascada (30-80ms entre sí) */
+  .grid4 .card:nth-child(2),.grid2 .sede:nth-child(2){transition-delay:.07s}
+  .grid4 .card:nth-child(3){transition-delay:.14s}
+  .grid4 .card:nth-child(4){transition-delay:.21s}
 
   @media(max-width:900px){
     .split,.vivo,.contacto{grid-template-columns:1fr}
@@ -131,7 +147,7 @@
     header.open .logo,header.open .burger{color:var(--tinta)}
     .menu{position:fixed;top:74px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1.3rem;
       background:#fff;padding:22px 24px 30px;box-shadow:0 16px 30px -14px rgba(22,34,46,.35);
-      transform:translateY(-135%);transition:transform .32s ease;pointer-events:none}
+      transform:translateY(-135%);transition:transform .34s var(--ease-drawer);pointer-events:none}
     header.open .menu{transform:none;pointer-events:auto}
     .menu a{color:var(--tinta);font-size:1.1rem}
     .menu .cta{align-self:stretch;text-align:center;color:#fff}
@@ -140,6 +156,14 @@
     .grid4{grid-template-columns:1fr}
     .hero .actions{flex-direction:column}
     .hero .actions .btn{width:100%;justify-content:center}
+  }
+  /* Accesibilidad: menos movimiento para quien lo pide (mantiene opacidad, quita desplazamientos) */
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto}
+    .reveal{transform:none;transition:opacity .3s ease}
+    .reveal .card,.card{transition-delay:0!important}
+    .scroll span,.hero .blob{animation:none}
+    .btn:active{transform:none}
   }
 </style>
 </head>
