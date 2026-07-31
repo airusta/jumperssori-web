@@ -1,8 +1,7 @@
 ---
 deployment:
   tasks:
-    # Ajustar DEPLOYPATH al docroot real que muestre cPanel al crear el subdominio.
-    # Default de cPanel para el subdominio "staging": /home2/jumperss/staging.jumperssori.com/
-    - export DEPLOYPATH=/home2/jumperss/staging.jumperssori.com/
+    # Docroot real del subdominio staging (confirmado en cPanel, bajo public_html).
+    - export DEPLOYPATH=/home2/jumperss/public_html/staging.jumperssori.com/
     - /bin/cp -R index.html "$DEPLOYPATH"
     - /bin/cp -R assets "$DEPLOYPATH" 2>/dev/null || true
