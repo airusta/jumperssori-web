@@ -3,5 +3,5 @@ deployment:
   tasks:
     # Docroot real del subdominio staging (confirmado en cPanel, bajo public_html).
     - export DEPLOYPATH=/home2/jumperss/public_html/staging.jumperssori.com/
-    - /bin/cp -R index.html "$DEPLOYPATH"
+    - /bin/cp -R *.html "$DEPLOYPATH"
     - /bin/cp -R assets "$DEPLOYPATH" 2>/dev/null || true

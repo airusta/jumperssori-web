@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jumperssori · Fondo animado (prueba)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: { extend: { fontFamily: { display: ["'Baloo 2'","sans-serif"], body: ["Nunito","sans-serif"] } } }
+  }
+</script>
+<style>
+  /* particles.js crea un <canvas> dentro de #particles-js */
+  #particles-js canvas { position:absolute; top:0; left:0; }
+  body { font-family:'Nunito',sans-serif; }
+  .display { font-family:'Baloo 2',sans-serif; }
+</style>
+</head>
+<body class="m-0">
+
+  <!-- Fondo de partículas con degradado de marca (claro/oscuro) -->
+  <div id="particles-js"
+       class="w-full h-screen absolute top-0 left-0 transition-colors duration-500
+              bg-gradient-to-tr from-[#FFFEFA] via-[#9ecfee] to-[#5FA7DA]
+              dark:from-[#0a1f2e] dark:via-[#123a52] dark:to-[#2c6996]"></div>
+
+  <!-- Toggle claro/oscuro, fijo arriba a la derecha -->
+  <button id="toggle" aria-label="Alternar modo claro y oscuro"
+          class="fixed top-4 right-4 z-20 display font-semibold text-sm
+                 bg-white/80 dark:bg-white/10 text-[#33302b] dark:text-white
+                 backdrop-blur px-4 py-2 rounded-full shadow-lg
+                 border-2 border-white/60 dark:border-white/20
+                 transition active:scale-95">
+    <span class="dark:hidden">🌙 Modo oscuro</span>
+    <span class="hidden dark:inline">☀️ Modo claro</span>
+  </button>
+
+  <!-- Contenido centrado, encima de las partículas -->
+  <main class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
+    <img src="assets/logo-nav.png" alt="Jumperssori"
+         class="h-16 sm:h-20 mb-8 drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
+    <h1 class="display font-extrabold text-4xl sm:text-6xl max-w-4xl leading-tight
+               text-[#2c6996] dark:text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
+      Donde tus hijos aprenden jugando, en dos idiomas.
+    </h1>
+    <p class="mt-5 text-lg sm:text-xl max-w-xl text-[#33302b]/80 dark:text-white/80">
+      Un centro infantil bilingüe, cálido y seguro, inspirado en Montessori.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-4 justify-center">
+      <a href="#" class="display font-semibold text-[#33302b] bg-[#FF914D] px-7 py-3 rounded-full
+                         shadow-[0_5px_0_#ec6f28] active:translate-y-[3px] active:shadow-[0_1px_0_#ec6f28] transition">
+        Agenda una visita
+      </a>
+      <a href="/" class="display font-semibold px-7 py-3 rounded-full border-[2.5px]
+                         border-[#2c6996] dark:border-white text-[#2c6996] dark:text-white
+                         hover:bg-white/20 transition">
+        Ver el sitio
+      </a>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Toggle claro/oscuro (clase 'dark' en <html>)
+    const html = document.documentElement;
+    document.getElementById("toggle").addEventListener("click", () => {
+      html.classList.toggle("dark");
+    });
+
+    // particles.js con colores de marca Jumperssori
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 120, density: { enable: true, value_area: 900 } },
+        color: { value: ["#5FA7DA", "#FFE680", "#FF914D", "#5CB693"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.7, random: true, anim: { enable: true, speed: 0.8, opacity_min: 0.25, sync: false } },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#5FA7DA", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 1.2, direction: "none", random: true, straight: false, out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 160, line_linked: { opacity: 0.6 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
