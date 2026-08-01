@@ -4,131 +4,149 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jumperssori · Centro Infantil</title>
-<meta name="description" content="Centro infantil para la primera infancia: juego, autonomía y ambientes preparados. Con Jumperssori en Vivo, las familias acompañan en tiempo real.">
+<meta name="description" content="Centro infantil para la primera infancia: juego, autonomia y ambientes preparados. Con Jumperssori en Vivo, las familias acompañan en tiempo real.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --azul:#5fa7da; --azul-d:#2f6fa3; --tinta:#152634; --marino:#122c42;
-    --naranja:#ff7a3d; --amarillo:#ffd24d;
-    --gris:#5c6b78; --crema:#f7f3ec; --slate:#f2f6f9; --linea:#e4ece2;
+    --azul:#5fa7da; --azul-d:#2f6fa3; --azul-soft:#e9f3fb;
+    --naranja:#ff914d; --naranja-d:#f2652a; --amarillo:#ffd24d;
+    --crema:#fff7ec; --crema2:#fdeede; --blanco:#fffdf9;
+    --tinta:#3c2c22; --gris:#7a6a5c; --linea:#efe1cf;
     --max:1120px;
-    --serif:'Fraunces',Georgia,serif;
-    --sans:'Inter',system-ui,sans-serif;
+    --display:'Baloo 2',system-ui,sans-serif;
+    --body:'Nunito',system-ui,sans-serif;
     --ease-out:cubic-bezier(0.23,1,0.32,1);
     --ease-drawer:cubic-bezier(0.32,0.72,0,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--tinta);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+  body{font-family:var(--body);color:var(--tinta);background:var(--crema);line-height:1.65;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spacing:-.02em}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.06;letter-spacing:-.01em}
   a{color:inherit;text-decoration:none}
   svg{display:block}
-  .ico{width:22px;height:22px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .ico{width:22px;height:22px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
-  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:1rem;
-    padding:.9em 1.6em;border-radius:12px;cursor:pointer;border:1.5px solid transparent;
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:600;font-size:1.02rem;
+    padding:.75em 1.6em;border-radius:999px;cursor:pointer;border:2.5px solid transparent;
     transition:transform .18s var(--ease-out),background .2s ease,border-color .2s ease,color .2s ease}
-  .btn-p{background:var(--naranja);color:#fff}
-  .btn-line{border-color:currentColor}
-  .btn:active{transform:scale(.96)}
+  .btn-p{background:var(--naranja);color:var(--tinta);box-shadow:0 6px 0 var(--naranja-d)}
+  .btn-p:active{box-shadow:0 2px 0 var(--naranja-d)}
+  .btn-line{border-color:var(--tinta);color:var(--tinta)}
+  .btn-y{background:var(--amarillo);color:var(--tinta);box-shadow:0 6px 0 #e0ac1e}
+  .btn:active{transform:translateY(3px)}
   @media(hover:hover) and (pointer:fine){
-    .btn-p:hover{background:#f2652a;transform:translateY(-2px)}
-    .btn-line:hover{background:rgba(255,255,255,.1)}
+    .btn-p:hover{background:#ff9f61}
+    .btn-line:hover{background:rgba(60,44,34,.06)}
+    .btn-y:hover{background:#ffdc6a}
   }
 
   /* NAV */
   header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s ease,box-shadow .3s ease}
-  header.solid{background:rgba(255,255,255,.9);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--linea)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
-  .logo{display:flex;align-items:center;gap:.55em;font-family:var(--serif);font-weight:600;font-size:1.3rem;color:#fff;transition:color .3s ease}
-  header.solid .logo{color:var(--tinta)}
-  .logo svg{width:30px;height:30px}
-  .menu{display:flex;gap:2rem;align-items:center;font-weight:500;color:rgba(255,255,255,.9)}
-  header.solid .menu{color:var(--gris)}
+  header.solid{background:rgba(255,247,236,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px -12px rgba(60,44,34,.4)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{display:flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:800;font-size:1.4rem;color:var(--tinta)}
+  .logo svg{width:34px;height:34px}
+  .menu{display:flex;gap:2rem;align-items:center;font-family:var(--display);font-weight:600;color:var(--tinta)}
   .menu a{transition:color .2s ease}
-  .menu .cta{color:#fff;background:var(--azul-d);padding:.5em 1.1em;border-radius:10px}
-  header.solid .menu .cta{color:#fff}
-  @media(hover:hover) and (pointer:fine){ .menu a:hover{color:var(--naranja)} .menu .cta:hover{color:#fff} }
-  .burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:.2em}
-  header.solid .burger{color:var(--tinta)}
+  .menu .cta{color:#fff;background:var(--azul-d);padding:.45em 1.1em;border-radius:999px}
+  @media(hover:hover) and (pointer:fine){ .menu a:hover{color:var(--naranja-d)} .menu .cta:hover{color:#fff;background:var(--azul)} }
+  .burger{display:none;background:none;border:0;color:var(--tinta);cursor:pointer;padding:.2em}
 
   /* HERO */
-  .hero{min-height:100svh;display:flex;align-items:center;position:relative;color:#fff;background:var(--marino)}
-  .hero-inner{position:relative;z-index:2;padding:132px 0 96px}
-  .hero h1{font-size:clamp(2.9rem,7.5vw,5.3rem);font-weight:500;max-width:15ch}
-  .hero h1 em{font-style:italic;color:var(--amarillo)}
-  .hero .sub{font-size:clamp(1.1rem,2vw,1.35rem);max-width:50ch;margin:1.6rem 0 2.4rem;color:rgba(255,255,255,.85);line-height:1.6}
-  .hero .actions{display:flex;gap:1rem;flex-wrap:wrap}
-  .hero .loc{font-size:.9rem;letter-spacing:.02em;color:rgba(255,255,255,.7);margin-bottom:1.4rem;display:flex;align-items:center;gap:.5em}
+  .hero{position:relative;overflow:hidden;background:var(--crema);padding:150px 0 96px}
+  .hero .shapes{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .hero .shapes span{position:absolute;border-radius:50%}
+  .s-sun{width:150px;height:150px;background:var(--amarillo);top:120px;right:8%;opacity:.9}
+  .s-blue{width:230px;height:230px;background:var(--azul);opacity:.16;bottom:-40px;right:26%}
+  .s-orange{width:90px;height:90px;background:var(--naranja);opacity:.85;bottom:80px;left:4%}
+  .s-ring{width:120px;height:120px;border:14px solid var(--azul);opacity:.22;border-radius:50%;top:80px;left:38%}
+  .hero-inner{position:relative;z-index:1;max-width:760px}
+  .hero .loc{display:inline-flex;align-items:center;gap:.5em;background:var(--azul-soft);color:var(--azul-d);font-family:var(--display);font-weight:600;font-size:.92rem;padding:.35em 1em;border-radius:999px;margin-bottom:1.4rem}
   .hero .loc .ico{width:17px;height:17px}
+  .hero h1{font-size:clamp(2.9rem,7.5vw,5.2rem);font-weight:800;max-width:16ch}
+  .hero h1 .hl{color:var(--naranja-d);position:relative;white-space:nowrap}
+  .hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.28em;background:var(--amarillo);z-index:-1;border-radius:4px}
+  .hero .sub{font-size:clamp(1.1rem,2vw,1.35rem);max-width:52ch;margin:1.6rem 0 2.4rem;color:var(--gris)}
+  .hero .actions{display:flex;gap:1rem;flex-wrap:wrap}
 
   /* SECTIONS */
-  section{padding:104px 0}
-  .slate{background:var(--slate)}
-  .marino{background:var(--marino);color:#fff}
-  h2.big{font-size:clamp(2rem,4.2vw,3.3rem);max-width:18ch}
-  .lead{font-family:var(--serif);font-weight:500;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.18;max-width:20ch}
+  section{padding:100px 0;position:relative}
+  .cream2{background:var(--crema2)}
+  .blue{background:var(--azul-d);color:#fff}
+  h2.big{font-size:clamp(2.1rem,4.4vw,3.4rem);max-width:20ch}
+  .lead{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.16;max-width:18ch}
   .muted{color:var(--gris)}
   .split{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-  .imgph{border-radius:16px;aspect-ratio:4/3;background:radial-gradient(120% 120% at 20% 15%,var(--amarillo),var(--naranja));position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1.4rem;color:#5a3410;font-weight:600}
-  .imgph.blue{background:radial-gradient(120% 120% at 80% 10%,var(--azul),var(--marino));color:rgba(255,255,255,.85)}
-  .imgph small{font-weight:500;opacity:.85}
+  .imgph{border-radius:28px;aspect-ratio:4/3;background:radial-gradient(130% 130% at 22% 18%,var(--amarillo),var(--naranja));position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1.5rem;color:#6a3d15;font-weight:700;font-family:var(--display)}
+  .imgph.sky{background:radial-gradient(130% 130% at 78% 12%,#8fc4ea,var(--azul-d));color:rgba(255,255,255,.9)}
+  .imgph small{font-weight:600;opacity:.9;font-size:.9rem}
 
-  /* PILARES: editorial, sin cajas ni iconos */
-  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:44px 40px;margin-top:60px}
-  .pillar{border-top:2px solid var(--tinta);padding-top:20px}
-  .pillar h3{font-size:1.35rem;margin-bottom:.5rem}
-  .pillar p{color:var(--gris);font-size:.98rem;line-height:1.6}
+  /* PILARES: coloridos, redondeados, sin emoji */
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px}
+  .pillar{background:var(--blanco);border-radius:24px;padding:30px 26px;border:2px solid var(--linea);transition:transform .28s var(--ease-out),box-shadow .28s var(--ease-out)}
+  .pillar .dot{width:44px;height:44px;border-radius:14px;margin-bottom:18px;display:grid;place-items:center;color:#fff}
+  .pillar .dot .ico{width:24px;height:24px;stroke-width:2}
+  .pillar:nth-child(1) .dot{background:var(--azul)}
+  .pillar:nth-child(2) .dot{background:var(--naranja)}
+  .pillar:nth-child(3) .dot{background:#e9b52c;color:var(--tinta)}
+  .pillar:nth-child(4) .dot{background:var(--azul-d)}
+  .pillar h3{font-size:1.3rem;margin-bottom:.4rem}
+  .pillar p{color:var(--gris);font-size:.98rem;line-height:1.55}
+  @media(hover:hover) and (pointer:fine){ .pillar:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 20px 40px -22px rgba(60,44,34,.45)} }
 
   /* SEDES */
-  .sedes{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px}
-  .sede{border-radius:16px;overflow:hidden;border:1px solid var(--linea)}
-  .sede .ph{height:180px;background:radial-gradient(120% 140% at 30% 20%,var(--azul),var(--marino))}
+  .sedes{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:52px}
+  .sede{background:var(--blanco);border-radius:28px;overflow:hidden;border:2px solid var(--linea)}
+  .sede .ph{height:180px}
+  .sede:nth-child(1) .ph{background:radial-gradient(130% 150% at 30% 20%,#8fc4ea,var(--azul-d))}
+  .sede:nth-child(2) .ph{background:radial-gradient(130% 150% at 70% 20%,var(--amarillo),var(--naranja))}
   .sede .body{padding:30px}
-  .sede h3{font-size:1.5rem;margin:.2rem 0 .5rem}
-  .sede .k{font-size:.82rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--azul-d)}
-  .sede p{color:var(--gris);margin:.4rem 0}
-  .sede .meta{font-size:.9rem;color:var(--tinta);margin-top:.8rem}
+  .sede .k{display:inline-block;font-family:var(--display);font-weight:600;font-size:.8rem;letter-spacing:.02em;color:#fff;background:var(--azul);padding:.2em .8em;border-radius:999px}
+  .sede:nth-child(2) .k{background:var(--naranja-d)}
+  .sede h3{font-size:1.55rem;margin:.6rem 0 .4rem}
+  .sede p{color:var(--gris);margin:.3rem 0}
+  .sede .meta{font-size:.92rem;color:var(--tinta);font-weight:600;margin-top:.8rem}
 
   /* EN VIVO */
   .vivo{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
-  .vivo h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.1rem}
-  .vivo p{color:rgba(255,255,255,.82);margin-bottom:2rem;font-size:1.08rem;max-width:44ch}
-  .vivo .mock{aspect-ratio:16/10;border-radius:16px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;position:relative}
-  .vivo .mock .rec{position:absolute;top:14px;left:16px;font-size:.72rem;font-weight:600;letter-spacing:.08em;color:#ff6b6b;display:flex;align-items:center;gap:.4em}
-  .vivo .mock .rec span{width:8px;height:8px;border-radius:50%;background:#ff6b6b}
-  .vivo .play{width:66px;height:66px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;color:var(--marino)}
-  .vivo .play svg{width:26px;height:26px;margin-left:3px;fill:currentColor}
+  .vivo h2{font-size:clamp(2.1rem,4vw,3.1rem);margin-bottom:1.1rem}
+  .vivo p{color:rgba(255,255,255,.9);margin-bottom:2rem;font-size:1.1rem;max-width:44ch}
+  .vivo .mock{aspect-ratio:16/10;border-radius:24px;background:rgba(0,0,0,.22);border:2px solid rgba(255,255,255,.25);display:grid;place-items:center;position:relative}
+  .vivo .mock .rec{position:absolute;top:16px;left:18px;font-family:var(--display);font-size:.74rem;font-weight:700;letter-spacing:.06em;color:#ffd24d;display:flex;align-items:center;gap:.4em}
+  .vivo .mock .rec span{width:9px;height:9px;border-radius:50%;background:#ff6b6b}
+  .vivo .play{width:72px;height:72px;border-radius:50%;background:var(--amarillo);display:grid;place-items:center;color:var(--azul-d);box-shadow:0 8px 0 #e0ac1e}
+  .vivo .play svg{width:28px;height:28px;margin-left:3px;fill:currentColor}
 
   /* FAQ */
   .faq{max-width:800px;margin:52px auto 0}
-  details{border-bottom:1px solid var(--linea)}
-  summary{list-style:none;cursor:pointer;padding:24px 4px;font-family:var(--serif);font-weight:500;font-size:1.2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  details{background:var(--blanco);border:2px solid var(--linea);border-radius:20px;margin-bottom:14px;overflow:hidden}
+  summary{list-style:none;cursor:pointer;padding:22px 24px;font-family:var(--display);font-weight:600;font-size:1.15rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
   summary::-webkit-details-marker{display:none}
   summary .pm{position:relative;width:18px;height:18px;flex:none}
-  summary .pm::before,summary .pm::after{content:"";position:absolute;background:var(--azul-d);transition:transform .2s var(--ease-out)}
-  summary .pm::before{top:8px;left:0;width:18px;height:2px}
-  summary .pm::after{left:8px;top:0;width:2px;height:18px}
+  summary .pm::before,summary .pm::after{content:"";position:absolute;background:var(--naranja-d);border-radius:2px;transition:transform .2s var(--ease-out)}
+  summary .pm::before{top:8px;left:0;width:18px;height:2.5px}
+  summary .pm::after{left:8px;top:0;width:2.5px;height:18px}
   details[open] summary .pm::after{transform:scaleY(0)}
-  details p{padding:0 4px 26px;color:var(--gris)}
+  details>p{padding:0 24px 24px;color:var(--gris)}
 
   /* CONTACTO */
   .contacto{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
   .clist{margin-top:1.8rem}
-  .crow{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start}
-  .crow .ico{width:24px;height:24px;color:var(--azul-d);margin-top:2px;flex:none}
-  .crow b{display:block;font-weight:600}
+  .crow{display:flex;gap:1rem;margin-bottom:1.4rem;align-items:flex-start}
+  .crow .chip{width:44px;height:44px;border-radius:14px;background:var(--azul-soft);color:var(--azul-d);display:grid;place-items:center;flex:none}
+  .crow .chip .ico{width:22px;height:22px}
+  .crow b{display:block;font-family:var(--display);font-weight:600}
   .crow span{color:var(--gris)}
 
   footer{background:var(--tinta);color:rgba(255,255,255,.72);padding:60px 0 30px}
   footer .fgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center}
   footer .logo{color:#fff}
-  footer .fmenu{display:flex;gap:1.6rem;flex-wrap:wrap;font-weight:500}
-  @media(hover:hover) and (pointer:fine){ footer .fmenu a:hover{color:var(--naranja)} }
-  footer .copy{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:.85rem;opacity:.7}
+  footer .fmenu{display:flex;gap:1.6rem;flex-wrap:wrap;font-family:var(--display);font-weight:600}
+  @media(hover:hover) and (pointer:fine){ footer .fmenu a:hover{color:var(--amarillo)} }
+  footer .copy{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-size:.86rem;opacity:.7}
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
   .reveal.in{opacity:1;transform:none}
@@ -138,28 +156,29 @@
 
   @media(max-width:920px){
     .split,.vivo,.contacto{grid-template-columns:1fr;gap:40px}
-    .pillars{grid-template-columns:1fr 1fr;gap:36px 32px}
+    .pillars{grid-template-columns:1fr 1fr;gap:22px}
     .sedes{grid-template-columns:1fr}
+    .s-blue,.s-ring{display:none}
     .burger{display:block}
-    header.open{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--linea)}
-    header.open .logo,header.open .burger{color:var(--tinta)}
-    .menu{position:fixed;top:76px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1.3rem;
-      background:#fff;padding:24px;box-shadow:0 16px 30px -14px rgba(18,44,66,.3);color:var(--tinta);
+    header.open{background:var(--crema);box-shadow:0 2px 20px -12px rgba(60,44,34,.4)}
+    .menu{position:fixed;top:78px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1.3rem;
+      background:var(--crema);padding:24px;box-shadow:0 16px 30px -14px rgba(60,44,34,.3);
       transform:translateY(-140%);transition:transform .34s var(--ease-drawer);pointer-events:none}
     header.open .menu{transform:none;pointer-events:auto}
-    .menu a{font-size:1.15rem}
+    .menu a{font-size:1.2rem}
     .menu .cta{align-self:stretch;text-align:center}
   }
   @media(max-width:560px){
     .pillars{grid-template-columns:1fr}
     .hero .actions{flex-direction:column}
     .hero .actions .btn{width:100%;justify-content:center}
+    .s-sun{width:100px;height:100px;top:100px}
   }
   @media(prefers-reduced-motion:reduce){
     *{scroll-behavior:auto}
     .reveal{transform:none;transition:opacity .3s ease}
     .pillar{transition-delay:0!important}
-    .btn:active{transform:none}
+    .btn:active,.pillar:hover{transform:none}
   }
 </style>
 </head>
@@ -168,7 +187,7 @@
 <header id="hdr">
   <div class="wrap nav">
     <a href="#top" class="logo" aria-label="Jumperssori inicio">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c4.5 3 6.5 7 6.5 12 0 3.2-1 6-2.6 8.2l-3.9-2.3-3.9 2.3C10.5 21 9.5 18.2 9.5 15 9.5 10 11.5 6 16 3Z" fill="#ff7a3d"/><circle cx="16" cy="13" r="2.4" fill="#122c42"/><path d="M12.1 23.4 8.6 27M19.9 23.4 23.4 27" stroke="#ffd24d" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#ffd24d"/><path d="M17 6c4.2 2.8 6 6.5 6 11 0 3-1 5.6-2.4 7.6l-3.6-2.1-3.6 2.1C12 22.6 11 20 11 17c0-4.5 1.8-8.2 6-11Z" fill="#ff914d"/><circle cx="17" cy="14.5" r="2.2" fill="#2f6fa3"/></svg>
       Jumperssori
     </a>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
@@ -187,10 +206,13 @@
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <div class="shapes" aria-hidden="true">
+    <span class="s-sun"></span><span class="s-blue"></span><span class="s-orange"></span><span class="s-ring"></span>
+  </div>
   <div class="wrap hero-inner">
-    <p class="loc"><svg class="ico" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/><path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg> Centro Infantil · [Ciudad]</p>
-    <h1>Crecer, jugar y <em>aprender</em> sin prisa.</h1>
-    <p class="sub">Un espacio para la primera infancia, donde cada niña y niño desarrolla su autonomía en ambientes preparados, acompañado por un equipo que cuida cada detalle.</p>
+    <span class="loc"><svg class="ico" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/><path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg> Centro Infantil · [Ciudad]</span>
+    <h1>Crecer, jugar y <span class="hl">aprender</span> sin prisa.</h1>
+    <p class="sub">Un espacio para la primera infancia, donde cada niña y niño desarrolla su autonomia en ambientes preparados, acompañado por un equipo que cuida cada detalle.</p>
     <div class="actions">
       <a href="#contacto" class="btn btn-p">Agendá una visita</a>
       <a href="#vivo" class="btn btn-line">Conocé Jumperssori en Vivo</a>
@@ -202,23 +224,23 @@
 <section id="somos">
   <div class="wrap split">
     <div class="reveal">
-      <h2 class="lead">Acompañamos a cada niña y niño en su forma única de descubrir el mundo.</h2>
-      <p class="muted" style="margin-top:1.4rem;font-size:1.08rem;max-width:52ch">Nuestra propuesta se inspira en la pedagogía Montessori: ambientes ordenados y estimulantes, materiales al alcance de la mano, y adultos que observan y acompañan en lugar de imponer. El juego es el motor del aprendizaje; el vínculo, la base de la confianza.</p>
-      <div style="margin-top:2rem"><a href="#propuesta" class="btn btn-line" style="color:var(--azul-d)">Ver nuestra propuesta</a></div>
+      <h2 class="lead">Acompañamos a cada niña y niño en su forma unica de descubrir el mundo.</h2>
+      <p class="muted" style="margin-top:1.4rem;font-size:1.1rem;max-width:52ch">Nuestra propuesta se inspira en la pedagogia Montessori: ambientes ordenados y estimulantes, materiales al alcance de la mano, y adultos que observan y acompañan en lugar de imponer. El juego es el motor del aprendizaje; el vinculo, la base de la confianza.</p>
+      <div style="margin-top:2rem"><a href="#propuesta" class="btn btn-line">Ver nuestra propuesta</a></div>
     </div>
-    <div class="imgph blue reveal"><small>Foto del ambiente preparado (reemplazar, sin rostros identificables)</small></div>
+    <div class="imgph sky reveal"><small>Foto del ambiente preparado (reemplazar, sin rostros identificables)</small></div>
   </div>
 </section>
 
-<!-- PROPUESTA (pilares editoriales) -->
-<section class="slate" id="propuesta">
+<!-- PROPUESTA -->
+<section class="cream2" id="propuesta">
   <div class="wrap">
-    <h2 class="big reveal">Lo que la primera infancia merece: calma, respeto y juego.</h2>
+    <h2 class="big reveal">Lo que la primera infancia merece: calma, respeto y mucho juego.</h2>
     <div class="pillars">
-      <div class="pillar reveal"><h3>Propuesta pedagógica</h3><p>Aprendizaje a través del juego y la exploración, respetando el ritmo de cada niño.</p></div>
-      <div class="pillar reveal"><h3>Ambientes preparados</h3><p>Espacios seguros y ordenados, a su medida, que invitan a la autonomía.</p></div>
-      <div class="pillar reveal"><h3>Equipo humano</h3><p>Educadoras formadas que observan, acompañan y cuidan con dedicación.</p></div>
-      <div class="pillar reveal"><h3>Confianza y cuidado</h3><p>Protocolos claros y transparencia total con las familias.</p></div>
+      <div class="pillar reveal"><div class="dot"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></div><h3>Propuesta pedagogica</h3><p>Aprendizaje a traves del juego y la exploracion, respetando el ritmo de cada niño.</p></div>
+      <div class="pillar reveal"><div class="dot"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div><h3>Ambientes preparados</h3><p>Espacios seguros y ordenados, a su medida, que invitan a la autonomia.</p></div>
+      <div class="pillar reveal"><div class="dot"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 0 1 0 5.5M21 20c0-2.6-1.6-4.8-4-5.6"/></svg></div><h3>Equipo humano</h3><p>Educadoras formadas que observan, acompañan y cuidan con dedicacion.</p></div>
+      <div class="pillar reveal"><div class="dot"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.5-3.6"/></svg></div><h3>Confianza y cuidado</h3><p>Protocolos claros y transparencia total con las familias.</p></div>
     </div>
   </div>
 </section>
@@ -228,19 +250,19 @@
   <div class="wrap">
     <h2 class="big reveal">Dos espacios, una misma forma de cuidar.</h2>
     <div class="sedes">
-      <div class="sede reveal"><div class="ph"></div><div class="body"><span class="k">Primeros años</span><h3>Sede Inicial</h3><p>Cuna y nido: estimulación temprana y cuidado personalizado para los más pequeños.</p><p class="meta">[Dirección] · [Teléfono]</p></div></div>
-      <div class="sede reveal"><div class="ph"></div><div class="body"><span class="k">Preescolar</span><h3>Sede Espacial</h3><p>Parvulario y preparatoria: autonomía, juego y preparación para la siguiente etapa.</p><p class="meta">[Dirección] · [Teléfono]</p></div></div>
+      <div class="sede reveal"><div class="ph"></div><div class="body"><span class="k">Primeros años</span><h3>Sede Inicial</h3><p>Cuna y nido: estimulacion temprana y cuidado personalizado para los mas pequeños.</p><p class="meta">[Direccion] · [Telefono]</p></div></div>
+      <div class="sede reveal"><div class="ph"></div><div class="body"><span class="k">Preescolar</span><h3>Sede Espacial</h3><p>Parvulario y preparatoria: autonomia, juego y preparacion para la siguiente etapa.</p><p class="meta">[Direccion] · [Telefono]</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- EN VIVO -->
-<section class="marino" id="vivo">
+<section class="blue" id="vivo">
   <div class="wrap vivo">
     <div class="reveal">
       <h2>Jumperssori en Vivo</h2>
-      <p>Las familias ven a sus hijos en tiempo real desde una plataforma privada y segura. La tranquilidad de estar cerca, aunque estés lejos. Acceso solo para apoderados autorizados, con consentimiento y cuidado de la privacidad.</p>
-      <a href="https://camaras.jumperssori.com" class="btn btn-p">Ingresar a la plataforma</a>
+      <p>Las familias ven a sus hijos en tiempo real desde una plataforma privada y segura. La tranquilidad de estar cerca, aunque estes lejos. Acceso solo para apoderados autorizados, con consentimiento y cuidado de la privacidad.</p>
+      <a href="https://camaras.jumperssori.com" class="btn btn-y">Ingresar a la plataforma</a>
     </div>
     <div class="mock reveal">
       <div class="rec"><span></span>EN VIVO</div>
@@ -250,29 +272,29 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section class="cream2" id="faq">
   <div class="wrap">
     <h2 class="big reveal" style="text-align:center;margin:0 auto">Preguntas frecuentes</h2>
     <div class="faq reveal">
-      <details open><summary>¿Qué edades reciben?<span class="pm"></span></summary><p>[Completar: rango de edades por sede, p. ej. de 3 meses a 5 años.]</p></details>
-      <details><summary>¿Cuál es el horario de atención?<span class="pm"></span></summary><p>[Completar: horario de lunes a viernes, media jornada / jornada completa.]</p></details>
-      <details><summary>¿Cómo es el proceso de inscripción?<span class="pm"></span></summary><p>[Completar: pasos para agendar una visita e inscribir, requisitos.]</p></details>
-      <details><summary>¿Cómo funciona la privacidad de Jumperssori en Vivo?<span class="pm"></span></summary><p>El acceso a las cámaras es exclusivo para apoderados autorizados, previo consentimiento informado. El video es privado, cifrado y nunca público; cada familia ve únicamente las salas asignadas.</p></details>
-      <details><summary>¿Qué propuesta pedagógica siguen?<span class="pm"></span></summary><p>Una propuesta inspirada en Montessori, centrada en el juego, la autonomía y el respeto por el ritmo de cada niño.</p></details>
+      <details open><summary>¿Que edades reciben?<span class="pm"></span></summary><p>[Completar: rango de edades por sede, por ejemplo de 3 meses a 5 años.]</p></details>
+      <details><summary>¿Cual es el horario de atencion?<span class="pm"></span></summary><p>[Completar: horario de lunes a viernes, media jornada o jornada completa.]</p></details>
+      <details><summary>¿Como es el proceso de inscripcion?<span class="pm"></span></summary><p>[Completar: pasos para agendar una visita e inscribir, requisitos.]</p></details>
+      <details><summary>¿Como funciona la privacidad de Jumperssori en Vivo?<span class="pm"></span></summary><p>El acceso a las camaras es exclusivo para apoderados autorizados, previo consentimiento informado. El video es privado, cifrado y nunca publico; cada familia ve unicamente las salas asignadas.</p></details>
+      <details><summary>¿Que propuesta pedagogica siguen?<span class="pm"></span></summary><p>Una propuesta inspirada en Montessori, centrada en el juego, la autonomia y el respeto por el ritmo de cada niño.</p></details>
     </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<section class="slate" id="contacto">
+<section id="contacto">
   <div class="wrap contacto">
     <div class="reveal">
       <h2 class="big">Agendá una visita.</h2>
       <div class="clist">
-        <div class="crow"><svg class="ico" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/><path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg><div><b>Dirección</b><span>[Dirección principal / sedes]</span></div></div>
-        <div class="crow"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><b>Teléfono / WhatsApp</b><span>[Número de contacto]</span></div></div>
-        <div class="crow"><svg class="ico" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m3 7 9 6 9-6"/></svg><div><b>Correo</b><span>info@jumperssori.com</span></div></div>
-        <div class="crow"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><div><b>Horario</b><span>[Lun a Vie, horario]</span></div></div>
+        <div class="crow"><span class="chip"><svg class="ico" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/><path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg></span><div><b>Direccion</b><span>[Direccion principal o sedes]</span></div></div>
+        <div class="crow"><span class="chip"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><b>Telefono o WhatsApp</b><span>[Numero de contacto]</span></div></div>
+        <div class="crow"><span class="chip"><svg class="ico" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m3 7 9 6 9-6"/></svg></span><div><b>Correo</b><span>info@jumperssori.com</span></div></div>
+        <div class="crow"><span class="chip"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><b>Horario</b><span>[Lun a Vie, horario]</span></div></div>
       </div>
     </div>
     <div class="imgph reveal" style="aspect-ratio:1/1"><small>Mapa o fachada (reemplazar por mapa embebido o imagen)</small></div>
@@ -282,7 +304,7 @@
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <a href="#top" class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c4.5 3 6.5 7 6.5 12 0 3.2-1 6-2.6 8.2l-3.9-2.3-3.9 2.3C10.5 21 9.5 18.2 9.5 15 9.5 10 11.5 6 16 3Z" fill="#ff7a3d"/><circle cx="16" cy="13" r="2.4" fill="#fff"/><path d="M12.1 23.4 8.6 27M19.9 23.4 23.4 27" stroke="#ffd24d" stroke-width="1.8" stroke-linecap="round"/></svg> Jumperssori</a>
+      <a href="#top" class="logo"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#ffd24d"/><path d="M17 6c4.2 2.8 6 6.5 6 11 0 3-1 5.6-2.4 7.6l-3.6-2.1-3.6 2.1C12 22.6 11 20 11 17c0-4.5 1.8-8.2 6-11Z" fill="#ff914d"/><circle cx="17" cy="14.5" r="2.2" fill="#2f6fa3"/></svg> Jumperssori</a>
       <nav class="fmenu">
         <a href="#somos">Nosotros</a><a href="#propuesta">Propuesta</a><a href="#sedes">Sedes</a>
         <a href="#vivo">En Vivo</a><a href="#contacto">Contacto</a>
