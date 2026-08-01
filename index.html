@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jumperssori · Centro Infantil</title>
-<meta name="description" content="Centro infantil para la primera infancia: juego, autonomia y ambientes preparados. Con Jumperssori en Vivo, las familias acompañan en tiempo real.">
+<title>Centro Infantil Bilingüe Jumperssori</title>
+<meta name="description" content="Centro infantil bilingüe en Bolivia con metodología inspirada en Montessori. Tus hijos aprenden jugando, en dos idiomas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --azul:#5fa7da; --azul-d:#2f6fa3; --azul-soft:#e9f3fb;
-    --naranja:#ff914d; --naranja-d:#f2652a; --amarillo:#ffd24d;
-    --crema:#fff7ec; --crema2:#fdeede; --blanco:#fffdf9;
-    --tinta:#3c2c22; --gris:#7a6a5c; --linea:#efe1cf;
+    /* Paleta oficial Jumperssori */
+    --azul:#5FA7DA; --naranja:#FF914D; --amarillo:#FFE680; --menta:#5CB693;
+    --gris:#949393; --crema:#FFFEFA;
+    /* Neutros funcionales derivados */
+    --azul-ink:#2c6996; --naranja-d:#ec6f28; --tinta:#33302b; --linea:#efe9dd; --blanco:#fff;
     --max:1120px;
     --display:'Baloo 2',system-ui,sans-serif;
     --body:'Nunito',system-ui,sans-serif;
@@ -23,162 +24,171 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:var(--body);color:var(--tinta);background:var(--crema);line-height:1.65;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.06;letter-spacing:-.01em}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.01em}
   a{color:inherit;text-decoration:none}
   svg{display:block}
-  .ico{width:22px;height:22px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .ico{stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
-  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:600;font-size:1.02rem;
-    padding:.75em 1.6em;border-radius:999px;cursor:pointer;border:2.5px solid transparent;
-    transition:transform .18s var(--ease-out),background .2s ease,border-color .2s ease,color .2s ease}
-  .btn-p{background:var(--naranja);color:var(--tinta);box-shadow:0 6px 0 var(--naranja-d)}
-  .btn-p:active{box-shadow:0 2px 0 var(--naranja-d)}
-  .btn-line{border-color:var(--tinta);color:var(--tinta)}
-  .btn-y{background:var(--amarillo);color:var(--tinta);box-shadow:0 6px 0 #e0ac1e}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-family:var(--display);font-weight:600;font-size:1.02rem;
+    padding:.8em 1.7em;border-radius:999px;cursor:pointer;border:2.5px solid transparent;text-align:center;
+    transition:transform .18s var(--ease-out),background .2s ease,border-color .2s ease}
+  .btn-p{background:var(--naranja);color:var(--tinta);box-shadow:0 5px 0 var(--naranja-d)}
+  .btn-p:active{box-shadow:0 1px 0 var(--naranja-d)}
+  .btn-line{border-color:currentColor}
   .btn:active{transform:translateY(3px)}
-  @media(hover:hover) and (pointer:fine){
-    .btn-p:hover{background:#ff9f61}
-    .btn-line:hover{background:rgba(60,44,34,.06)}
-    .btn-y:hover{background:#ffdc6a}
-  }
+  @media(hover:hover) and (pointer:fine){ .btn-p:hover{background:#ffa066} .btn-line:hover{background:rgba(51,48,43,.06)} }
+
+  /* LOGO (aproximación del wordmark real; reemplazar por PNG de Canva) */
+  .logo{display:inline-flex;flex-direction:column;gap:2px;line-height:1}
+  .logo .top{display:flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:600;font-size:.52rem;letter-spacing:.14em;color:var(--gris);text-transform:uppercase}
+  .logo .top i{width:6px;height:6px;border-radius:50%;display:inline-block}
+  .logo .top i:first-child{background:var(--azul)}
+  .logo .top i:last-child{background:var(--menta)}
+  .logo .word{font-family:var(--display);font-weight:800;font-style:italic;font-size:1.5rem;color:var(--naranja)}
+  .logo.on-dark .top{color:rgba(255,255,255,.72)}
+  .logo.on-dark .word{color:#fff}
 
   /* NAV */
   header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s ease,box-shadow .3s ease}
-  header.solid{background:rgba(255,247,236,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px -12px rgba(60,44,34,.4)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
-  .logo{display:flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:800;font-size:1.4rem;color:var(--tinta)}
-  .logo svg{width:34px;height:34px}
-  .menu{display:flex;gap:2rem;align-items:center;font-family:var(--display);font-weight:600;color:var(--tinta)}
+  header.solid{background:rgba(255,254,250,.92);backdrop-filter:blur(12px);box-shadow:0 2px 22px -14px rgba(51,48,43,.5)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .menu{display:flex;gap:1.9rem;align-items:center;font-family:var(--display);font-weight:600;color:var(--tinta)}
   .menu a{transition:color .2s ease}
-  .menu .cta{color:#fff;background:var(--azul-d);padding:.45em 1.1em;border-radius:999px}
-  @media(hover:hover) and (pointer:fine){ .menu a:hover{color:var(--naranja-d)} .menu .cta:hover{color:#fff;background:var(--azul)} }
+  .menu .cta{color:#fff;background:var(--azul);padding:.45em 1.1em;border-radius:999px}
+  @media(hover:hover) and (pointer:fine){ .menu a:hover{color:var(--naranja-d)} .menu .cta:hover{background:var(--azul-ink);color:#fff} }
   .burger{display:none;background:none;border:0;color:var(--tinta);cursor:pointer;padding:.2em}
+  .burger .ico{width:26px;height:26px}
 
   /* HERO */
-  .hero{position:relative;overflow:hidden;background:var(--crema);padding:150px 0 96px}
+  .hero{position:relative;overflow:hidden;background:var(--crema);padding:150px 0 92px}
   .hero .shapes{position:absolute;inset:0;z-index:0;pointer-events:none}
   .hero .shapes span{position:absolute;border-radius:50%}
-  .s-sun{width:150px;height:150px;background:var(--amarillo);top:120px;right:8%;opacity:.9}
-  .s-blue{width:230px;height:230px;background:var(--azul);opacity:.16;bottom:-40px;right:26%}
-  .s-orange{width:90px;height:90px;background:var(--naranja);opacity:.85;bottom:80px;left:4%}
-  .s-ring{width:120px;height:120px;border:14px solid var(--azul);opacity:.22;border-radius:50%;top:80px;left:38%}
-  .hero-inner{position:relative;z-index:1;max-width:760px}
-  .hero .loc{display:inline-flex;align-items:center;gap:.5em;background:var(--azul-soft);color:var(--azul-d);font-family:var(--display);font-weight:600;font-size:.92rem;padding:.35em 1em;border-radius:999px;margin-bottom:1.4rem}
-  .hero .loc .ico{width:17px;height:17px}
-  .hero h1{font-size:clamp(2.9rem,7.5vw,5.2rem);font-weight:800;max-width:16ch}
+  .s-sun{width:150px;height:150px;background:var(--amarillo);top:120px;right:7%}
+  .s-blue{width:230px;height:230px;background:var(--azul);opacity:.16;bottom:-50px;right:24%}
+  .s-mint{width:96px;height:96px;background:var(--menta);opacity:.85;bottom:70px;left:3%}
+  .s-ring{width:120px;height:120px;border:14px solid var(--azul);opacity:.2;border-radius:50%;top:70px;left:40%}
+  .hero-inner{position:relative;z-index:1;max-width:780px}
+  .hero .pill{display:inline-flex;align-items:center;gap:.5em;background:#eaf3fb;color:var(--azul-ink);font-family:var(--display);font-weight:600;font-size:.9rem;padding:.35em 1em;border-radius:999px;margin-bottom:1.3rem}
+  .hero h1{font-size:clamp(2.7rem,7vw,5rem);font-weight:800;max-width:16ch}
   .hero h1 .hl{color:var(--naranja-d);position:relative;white-space:nowrap}
-  .hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.28em;background:var(--amarillo);z-index:-1;border-radius:4px}
-  .hero .sub{font-size:clamp(1.1rem,2vw,1.35rem);max-width:52ch;margin:1.6rem 0 2.4rem;color:var(--gris)}
+  .hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.05em;height:.26em;background:var(--amarillo);z-index:-1;border-radius:4px}
+  .hero .sub{font-size:clamp(1.08rem,2vw,1.32rem);max-width:50ch;margin:1.5rem 0 2.3rem;color:var(--gris)}
   .hero .actions{display:flex;gap:1rem;flex-wrap:wrap}
 
   /* SECTIONS */
-  section{padding:100px 0;position:relative}
-  .cream2{background:var(--crema2)}
-  .blue{background:var(--azul-d);color:#fff}
-  h2.big{font-size:clamp(2.1rem,4.4vw,3.4rem);max-width:20ch}
-  .lead{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.16;max-width:18ch}
+  section{padding:92px 0;position:relative}
+  .sky{background:var(--azul)}
+  h2.big{font-size:clamp(2rem,4.4vw,3.2rem);max-width:22ch}
+  .eyebrowless{max-width:60ch}
   .muted{color:var(--gris)}
-  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-  .imgph{border-radius:28px;aspect-ratio:4/3;background:radial-gradient(130% 130% at 22% 18%,var(--amarillo),var(--naranja));position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1.5rem;color:#6a3d15;font-weight:700;font-family:var(--display)}
-  .imgph.sky{background:radial-gradient(130% 130% at 78% 12%,#8fc4ea,var(--azul-d));color:rgba(255,255,255,.9)}
-  .imgph small{font-weight:600;opacity:.9;font-size:.9rem}
+  .center{text-align:center;margin:0 auto}
 
-  /* PILARES: coloridos, redondeados, sin emoji */
-  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px}
-  .pillar{background:var(--blanco);border-radius:24px;padding:30px 26px;border:2px solid var(--linea);transition:transform .28s var(--ease-out),box-shadow .28s var(--ease-out)}
-  .pillar .dot{width:44px;height:44px;border-radius:14px;margin-bottom:18px;display:grid;place-items:center;color:#fff}
-  .pillar .dot .ico{width:24px;height:24px;stroke-width:2}
-  .pillar:nth-child(1) .dot{background:var(--azul)}
-  .pillar:nth-child(2) .dot{background:var(--naranja)}
-  .pillar:nth-child(3) .dot{background:#e9b52c;color:var(--tinta)}
-  .pillar:nth-child(4) .dot{background:var(--azul-d)}
-  .pillar h3{font-size:1.3rem;margin-bottom:.4rem}
-  .pillar p{color:var(--gris);font-size:.98rem;line-height:1.55}
-  @media(hover:hover) and (pointer:fine){ .pillar:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 20px 40px -22px rgba(60,44,34,.45)} }
+  /* NIVELES */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px}
+  .card{background:var(--blanco);border:2px solid var(--linea);border-radius:26px;padding:32px 28px;
+    transition:transform .28s var(--ease-out),box-shadow .28s var(--ease-out)}
+  .card .top{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;color:#fff;margin-bottom:18px}
+  .card .top .ico{width:30px;height:30px;stroke-width:2}
+  .card:nth-child(1) .top{background:var(--azul)}
+  .card:nth-child(2) .top{background:var(--naranja)}
+  .card:nth-child(3) .top{background:var(--menta)}
+  .card .age{font-family:var(--display);font-weight:600;font-size:.82rem;color:var(--azul-ink);background:#eaf3fb;padding:.2em .8em;border-radius:999px;display:inline-block;margin-bottom:.6rem}
+  .card:nth-child(2) .age{color:var(--naranja-d);background:#fff0e6}
+  .card:nth-child(3) .age{color:#2f7a5f;background:#e7f5ee}
+  .card h3{font-size:1.5rem;margin-bottom:.5rem}
+  .card p{color:var(--gris)}
+  @media(hover:hover) and (pointer:fine){ .card:hover{transform:translateY(-6px);box-shadow:0 22px 44px -24px rgba(51,48,43,.5)} }
 
-  /* SEDES */
-  .sedes{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:52px}
-  .sede{background:var(--blanco);border-radius:28px;overflow:hidden;border:2px solid var(--linea)}
-  .sede .ph{height:180px}
-  .sede:nth-child(1) .ph{background:radial-gradient(130% 150% at 30% 20%,#8fc4ea,var(--azul-d))}
-  .sede:nth-child(2) .ph{background:radial-gradient(130% 150% at 70% 20%,var(--amarillo),var(--naranja))}
-  .sede .body{padding:30px}
-  .sede .k{display:inline-block;font-family:var(--display);font-weight:600;font-size:.8rem;letter-spacing:.02em;color:#fff;background:var(--azul);padding:.2em .8em;border-radius:999px}
-  .sede:nth-child(2) .k{background:var(--naranja-d)}
-  .sede h3{font-size:1.55rem;margin:.6rem 0 .4rem}
-  .sede p{color:var(--gris);margin:.3rem 0}
-  .sede .meta{font-size:.92rem;color:var(--tinta);font-weight:600;margin-top:.8rem}
+  /* METODOLOGIA */
+  .meta-head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .imgph{border-radius:26px;aspect-ratio:4/3;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1.4rem;color:#fff;font-family:var(--display);font-weight:600;font-size:.9rem;
+    background:radial-gradient(130% 130% at 25% 20%,#8fc4ea,var(--azul-ink))}
+  .imgph small{opacity:.92}
+  .benes{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px}
+  .bene .b-ic{width:52px;height:52px;border-radius:16px;background:#fff;border:2px solid var(--linea);display:grid;place-items:center;color:var(--azul);margin-bottom:14px}
+  .bene:nth-child(2) .b-ic{color:var(--naranja)}
+  .bene:nth-child(3) .b-ic{color:var(--menta)}
+  .bene:nth-child(4) .b-ic{color:var(--azul-ink)}
+  .bene .b-ic .ico{width:26px;height:26px;stroke-width:2}
+  .bene h3{font-size:1.15rem;margin-bottom:.3rem}
+  .bene p{color:var(--gris);font-size:.96rem;line-height:1.55}
 
-  /* EN VIVO */
-  .vivo{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
-  .vivo h2{font-size:clamp(2.1rem,4vw,3.1rem);margin-bottom:1.1rem}
-  .vivo p{color:rgba(255,255,255,.9);margin-bottom:2rem;font-size:1.1rem;max-width:44ch}
-  .vivo .mock{aspect-ratio:16/10;border-radius:24px;background:rgba(0,0,0,.22);border:2px solid rgba(255,255,255,.25);display:grid;place-items:center;position:relative}
-  .vivo .mock .rec{position:absolute;top:16px;left:18px;font-family:var(--display);font-size:.74rem;font-weight:700;letter-spacing:.06em;color:#ffd24d;display:flex;align-items:center;gap:.4em}
-  .vivo .mock .rec span{width:9px;height:9px;border-radius:50%;background:#ff6b6b}
-  .vivo .play{width:72px;height:72px;border-radius:50%;background:var(--amarillo);display:grid;place-items:center;color:var(--azul-d);box-shadow:0 8px 0 #e0ac1e}
-  .vivo .play svg{width:28px;height:28px;margin-left:3px;fill:currentColor}
+  /* AREAS (galería) */
+  .gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:18px;margin-top:52px;min-height:440px}
+  .gal figure{border-radius:22px;overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:1.2rem;color:#fff;font-family:var(--display);font-weight:600}
+  .gal figure span{position:relative;z-index:1;font-size:1.05rem;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+  .gal .g1{grid-row:1 / span 2;background:radial-gradient(130% 120% at 30% 30%,#8fc4ea,var(--azul-ink))}
+  .gal .g2{background:radial-gradient(130% 130% at 60% 20%,var(--amarillo),var(--naranja));color:#6a3d15}
+  .gal .g3{background:radial-gradient(130% 130% at 40% 30%,#8ad3b3,#2f7a5f)}
+  .gal figure small{position:absolute;left:1.2rem;bottom:2.6rem;font-weight:500;opacity:.85;font-size:.72rem;z-index:1}
 
-  /* FAQ */
-  .faq{max-width:800px;margin:52px auto 0}
-  details{background:var(--blanco);border:2px solid var(--linea);border-radius:20px;margin-bottom:14px;overflow:hidden}
-  summary{list-style:none;cursor:pointer;padding:22px 24px;font-family:var(--display);font-weight:600;font-size:1.15rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-  summary::-webkit-details-marker{display:none}
-  summary .pm{position:relative;width:18px;height:18px;flex:none}
-  summary .pm::before,summary .pm::after{content:"";position:absolute;background:var(--naranja-d);border-radius:2px;transition:transform .2s var(--ease-out)}
-  summary .pm::before{top:8px;left:0;width:18px;height:2.5px}
-  summary .pm::after{left:8px;top:0;width:2.5px;height:18px}
-  details[open] summary .pm::after{transform:scaleY(0)}
-  details>p{padding:0 24px 24px;color:var(--gris)}
+  /* TESTIMONIOS */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+  .quote{background:var(--blanco);border:2px solid var(--linea);border-radius:24px;padding:30px 28px}
+  .quote .mark{font-family:var(--display);font-weight:800;font-size:2.6rem;color:var(--amarillo);line-height:.6;height:1rem}
+  .quote p{margin:.6rem 0 1.4rem;color:var(--tinta)}
+  .quote .who{display:flex;align-items:center;gap:.8rem}
+  .quote .av{width:44px;height:44px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700}
+  .quote:nth-child(2) .av{background:var(--naranja)}
+  .quote:nth-child(3) .av{background:var(--menta)}
+  .quote b{font-family:var(--display);display:block;font-size:.98rem}
+  .quote .who span{color:var(--gris);font-size:.86rem}
 
-  /* CONTACTO */
-  .contacto{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-  .clist{margin-top:1.8rem}
-  .crow{display:flex;gap:1rem;margin-bottom:1.4rem;align-items:flex-start}
-  .crow .chip{width:44px;height:44px;border-radius:14px;background:var(--azul-soft);color:var(--azul-d);display:grid;place-items:center;flex:none}
-  .crow .chip .ico{width:22px;height:22px}
-  .crow b{display:block;font-family:var(--display);font-weight:600}
-  .crow span{color:var(--gris)}
+  /* INSCRIPCIONES */
+  .inscribe{text-align:center;color:var(--tinta)}
+  .inscribe h2{font-size:clamp(2.1rem,4.4vw,3.2rem);max-width:20ch;margin:0 auto}
+  .inscribe p{max-width:48ch;margin:1.1rem auto 2rem;font-size:1.12rem}
+  .inscribe .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.4rem}
+  .contact-strip{display:flex;gap:2.4rem;justify-content:center;flex-wrap:wrap;font-family:var(--display);font-weight:600}
+  .contact-strip a,.contact-strip span{display:inline-flex;align-items:center;gap:.5em;color:var(--tinta)}
+  .contact-strip .ico{width:20px;height:20px}
 
-  footer{background:var(--tinta);color:rgba(255,255,255,.72);padding:60px 0 30px}
-  footer .fgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center}
-  footer .logo{color:#fff}
-  footer .fmenu{display:flex;gap:1.6rem;flex-wrap:wrap;font-family:var(--display);font-weight:600}
-  @media(hover:hover) and (pointer:fine){ footer .fmenu a:hover{color:var(--amarillo)} }
-  footer .copy{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-size:.86rem;opacity:.7}
+  /* FAQ dentro de metodología? no. FOOTER */
+  footer{background:var(--tinta);color:rgba(255,255,255,.72);padding:56px 0 30px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+  footer h4{font-family:var(--display);color:#fff;font-size:1rem;margin-bottom:1rem}
+  footer p,footer a{font-size:.95rem;line-height:1.9}
+  footer .col a{display:block}
+  @media(hover:hover) and (pointer:fine){ footer a:hover{color:var(--amarillo)} }
+  .social{display:flex;gap:.8rem;margin-top:.6rem}
+  .social a{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center;color:#fff}
+  .social .ico{width:20px;height:20px}
+  .copy{margin-top:38px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-size:.85rem;opacity:.7}
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
   .reveal.in{opacity:1;transform:none}
-  .pillars .pillar:nth-child(2){transition-delay:.07s}
-  .pillars .pillar:nth-child(3){transition-delay:.14s}
-  .pillars .pillar:nth-child(4){transition-delay:.21s}
+  .grid3 .card:nth-child(2),.benes .bene:nth-child(2){transition-delay:.07s}
+  .grid3 .card:nth-child(3),.benes .bene:nth-child(3){transition-delay:.14s}
+  .benes .bene:nth-child(4){transition-delay:.21s}
 
   @media(max-width:920px){
-    .split,.vivo,.contacto{grid-template-columns:1fr;gap:40px}
-    .pillars{grid-template-columns:1fr 1fr;gap:22px}
-    .sedes{grid-template-columns:1fr}
+    .grid3,.benes,.quotes{grid-template-columns:1fr 1fr}
+    .meta-head{grid-template-columns:1fr;gap:36px}
+    .fgrid{grid-template-columns:1fr}
+    .gal{grid-template-columns:1fr;grid-template-rows:none}
+    .gal .g1{grid-row:auto;min-height:220px}
+    .gal .g2,.gal .g3{min-height:180px}
     .s-blue,.s-ring{display:none}
     .burger{display:block}
-    header.open{background:var(--crema);box-shadow:0 2px 20px -12px rgba(60,44,34,.4)}
-    .menu{position:fixed;top:78px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1.3rem;
-      background:var(--crema);padding:24px;box-shadow:0 16px 30px -14px rgba(60,44,34,.3);
+    header.open{background:var(--crema);box-shadow:0 2px 22px -14px rgba(51,48,43,.5)}
+    .menu{position:fixed;top:80px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1.3rem;
+      background:var(--crema);padding:24px;box-shadow:0 16px 30px -14px rgba(51,48,43,.3);
       transform:translateY(-140%);transition:transform .34s var(--ease-drawer);pointer-events:none}
     header.open .menu{transform:none;pointer-events:auto}
-    .menu a{font-size:1.2rem}
-    .menu .cta{align-self:stretch;text-align:center}
+    .menu a{font-size:1.2rem}.menu .cta{align-self:stretch;text-align:center}
   }
   @media(max-width:560px){
-    .pillars{grid-template-columns:1fr}
-    .hero .actions{flex-direction:column}
-    .hero .actions .btn{width:100%;justify-content:center}
-    .s-sun{width:100px;height:100px;top:100px}
+    .grid3,.benes,.quotes{grid-template-columns:1fr}
+    .hero .actions,.inscribe .cta-row{flex-direction:column}
+    .hero .actions .btn{width:100%}
+    .s-sun{width:104px;height:104px;top:104px}
   }
   @media(prefers-reduced-motion:reduce){
     *{scroll-behavior:auto}
     .reveal{transform:none;transition:opacity .3s ease}
-    .pillar{transition-delay:0!important}
-    .btn:active,.pillar:hover{transform:none}
+    [class*="delay"],.card,.bene{transition-delay:0!important}
+    .btn:active,.card:hover{transform:none}
   }
 </style>
 </head>
@@ -186,132 +196,148 @@
 
 <header id="hdr">
   <div class="wrap nav">
-    <a href="#top" class="logo" aria-label="Jumperssori inicio">
-      <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#ffd24d"/><path d="M17 6c4.2 2.8 6 6.5 6 11 0 3-1 5.6-2.4 7.6l-3.6-2.1-3.6 2.1C12 22.6 11 20 11 17c0-4.5 1.8-8.2 6-11Z" fill="#ff914d"/><circle cx="17" cy="14.5" r="2.2" fill="#2f6fa3"/></svg>
-      Jumperssori
+    <a href="#top" class="logo" aria-label="Centro Infantil Bilingüe Jumperssori">
+      <span class="top"><i></i>Centro Infantil Bilingüe<i></i></span>
+      <span class="word">Jumperssori</span>
     </a>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
       <svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
     <nav class="menu" id="menu">
-      <a href="#somos">Nosotros</a>
-      <a href="#propuesta">Propuesta</a>
-      <a href="#sedes">Sedes</a>
-      <a href="#vivo">En Vivo</a>
-      <a href="#contacto">Contacto</a>
-      <a href="https://camaras.jumperssori.com" class="cta">Ingresar en vivo</a>
+      <a href="#niveles">Niveles</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#areas">Áreas</a>
+      <a href="#testimonios">Familias</a>
+      <a href="#inscribe" class="cta">Agenda una visita</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <section class="hero" id="top">
-  <div class="shapes" aria-hidden="true">
-    <span class="s-sun"></span><span class="s-blue"></span><span class="s-orange"></span><span class="s-ring"></span>
-  </div>
+  <div class="shapes" aria-hidden="true"><span class="s-sun"></span><span class="s-blue"></span><span class="s-mint"></span><span class="s-ring"></span></div>
   <div class="wrap hero-inner">
-    <span class="loc"><svg class="ico" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/><path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg> Centro Infantil · [Ciudad]</span>
-    <h1>Crecer, jugar y <span class="hl">aprender</span> sin prisa.</h1>
-    <p class="sub">Un espacio para la primera infancia, donde cada niña y niño desarrolla su autonomia en ambientes preparados, acompañado por un equipo que cuida cada detalle.</p>
+    <span class="pill">Bilingüe · Español e Inglés</span>
+    <h1>Donde tus hijos aprenden <span class="hl">jugando</span>, en dos idiomas.</h1>
+    <p class="sub">Un centro infantil cálido y seguro, con una metodología inspirada en Montessori. Acompañamos a cada niña y niño a crecer con confianza.</p>
     <div class="actions">
-      <a href="#contacto" class="btn btn-p">Agendá una visita</a>
-      <a href="#vivo" class="btn btn-line">Conocé Jumperssori en Vivo</a>
+      <a href="https://wa.me/591XXXXXXXX" class="btn btn-p" rel="noopener">Agenda una visita</a>
+      <a href="#metodologia" class="btn btn-line">Conoce la metodología</a>
     </div>
   </div>
 </section>
 
-<!-- SOMOS -->
-<section id="somos">
-  <div class="wrap split">
-    <div class="reveal">
-      <h2 class="lead">Acompañamos a cada niña y niño en su forma unica de descubrir el mundo.</h2>
-      <p class="muted" style="margin-top:1.4rem;font-size:1.1rem;max-width:52ch">Nuestra propuesta se inspira en la pedagogia Montessori: ambientes ordenados y estimulantes, materiales al alcance de la mano, y adultos que observan y acompañan en lugar de imponer. El juego es el motor del aprendizaje; el vinculo, la base de la confianza.</p>
-      <div style="margin-top:2rem"><a href="#propuesta" class="btn btn-line">Ver nuestra propuesta</a></div>
-    </div>
-    <div class="imgph sky reveal"><small>Foto del ambiente preparado (reemplazar, sin rostros identificables)</small></div>
-  </div>
-</section>
-
-<!-- PROPUESTA -->
-<section class="cream2" id="propuesta">
+<!-- 2. NIVELES -->
+<section id="niveles">
   <div class="wrap">
-    <h2 class="big reveal">Lo que la primera infancia merece: calma, respeto y mucho juego.</h2>
-    <div class="pillars">
-      <div class="pillar reveal"><div class="dot"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></div><h3>Propuesta pedagogica</h3><p>Aprendizaje a traves del juego y la exploracion, respetando el ritmo de cada niño.</p></div>
-      <div class="pillar reveal"><div class="dot"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div><h3>Ambientes preparados</h3><p>Espacios seguros y ordenados, a su medida, que invitan a la autonomia.</p></div>
-      <div class="pillar reveal"><div class="dot"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 0 1 0 5.5M21 20c0-2.6-1.6-4.8-4-5.6"/></svg></div><h3>Equipo humano</h3><p>Educadoras formadas que observan, acompañan y cuidan con dedicacion.</p></div>
-      <div class="pillar reveal"><div class="dot"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.5-3.6"/></svg></div><h3>Confianza y cuidado</h3><p>Protocolos claros y transparencia total con las familias.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- SEDES -->
-<section id="sedes">
-  <div class="wrap">
-    <h2 class="big reveal">Dos espacios, una misma forma de cuidar.</h2>
-    <div class="sedes">
-      <div class="sede reveal"><div class="ph"></div><div class="body"><span class="k">Primeros años</span><h3>Sede Inicial</h3><p>Cuna y nido: estimulacion temprana y cuidado personalizado para los mas pequeños.</p><p class="meta">[Direccion] · [Telefono]</p></div></div>
-      <div class="sede reveal"><div class="ph"></div><div class="body"><span class="k">Preescolar</span><h3>Sede Espacial</h3><p>Parvulario y preparatoria: autonomia, juego y preparacion para la siguiente etapa.</p><p class="meta">[Direccion] · [Telefono]</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- EN VIVO -->
-<section class="blue" id="vivo">
-  <div class="wrap vivo">
-    <div class="reveal">
-      <h2>Jumperssori en Vivo</h2>
-      <p>Las familias ven a sus hijos en tiempo real desde una plataforma privada y segura. La tranquilidad de estar cerca, aunque estes lejos. Acceso solo para apoderados autorizados, con consentimiento y cuidado de la privacidad.</p>
-      <a href="https://camaras.jumperssori.com" class="btn btn-y">Ingresar a la plataforma</a>
-    </div>
-    <div class="mock reveal">
-      <div class="rec"><span></span>EN VIVO</div>
-      <div class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="cream2" id="faq">
-  <div class="wrap">
-    <h2 class="big reveal" style="text-align:center;margin:0 auto">Preguntas frecuentes</h2>
-    <div class="faq reveal">
-      <details open><summary>¿Que edades reciben?<span class="pm"></span></summary><p>[Completar: rango de edades por sede, por ejemplo de 3 meses a 5 años.]</p></details>
-      <details><summary>¿Cual es el horario de atencion?<span class="pm"></span></summary><p>[Completar: horario de lunes a viernes, media jornada o jornada completa.]</p></details>
-      <details><summary>¿Como es el proceso de inscripcion?<span class="pm"></span></summary><p>[Completar: pasos para agendar una visita e inscribir, requisitos.]</p></details>
-      <details><summary>¿Como funciona la privacidad de Jumperssori en Vivo?<span class="pm"></span></summary><p>El acceso a las camaras es exclusivo para apoderados autorizados, previo consentimiento informado. El video es privado, cifrado y nunca publico; cada familia ve unicamente las salas asignadas.</p></details>
-      <details><summary>¿Que propuesta pedagogica siguen?<span class="pm"></span></summary><p>Una propuesta inspirada en Montessori, centrada en el juego, la autonomia y el respeto por el ritmo de cada niño.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="wrap contacto">
-    <div class="reveal">
-      <h2 class="big">Agendá una visita.</h2>
-      <div class="clist">
-        <div class="crow"><span class="chip"><svg class="ico" viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/><path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg></span><div><b>Direccion</b><span>[Direccion principal o sedes]</span></div></div>
-        <div class="crow"><span class="chip"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><b>Telefono o WhatsApp</b><span>[Numero de contacto]</span></div></div>
-        <div class="crow"><span class="chip"><svg class="ico" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m3 7 9 6 9-6"/></svg></span><div><b>Correo</b><span>info@jumperssori.com</span></div></div>
-        <div class="crow"><span class="chip"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><b>Horario</b><span>[Lun a Vie, horario]</span></div></div>
+    <h2 class="big reveal">Un nivel para cada etapa de la infancia.</h2>
+    <div class="grid3">
+      <div class="card reveal">
+        <div class="top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 14c0-4 3.6-7 8-7s8 3 8 7"/><path d="M4 14h16v2a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/><path d="M9 11v.01M15 11v.01"/></svg></div>
+        <span class="age">[Edad] · p. ej. 1 a 2 años</span>
+        <h3>Nido</h3>
+        <p>Los primeros pasos, con cuidado personalizado y mucho cariño. Estimulación temprana en un ambiente tranquilo y seguro.</p>
+      </div>
+      <div class="card reveal">
+        <div class="top"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="9" width="7" height="7" rx="1.5"/><rect x="13" y="9" width="7" height="7" rx="1.5"/><path d="M7.5 9V6.5M16.5 9V6.5"/></svg></div>
+        <span class="age">[Edad] · p. ej. 2 a 4 años</span>
+        <h3>Parvulario</h3>
+        <p>Juego, exploración y autonomía. Aquí descubren el mundo con las manos y empiezan su camino bilingüe.</p>
+      </div>
+      <div class="card reveal">
+        <div class="top"><svg class="ico" viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c0 1.5 2.2 2.5 5 2.5s5-1 5-2.5v-5"/></svg></div>
+        <span class="age">[Edad] · p. ej. 4 a 5 años</span>
+        <h3>Preparatorio</h3>
+        <p>Listos para el siguiente paso. Fortalecen lenguaje, lógica y confianza para empezar la escuela con seguridad.</p>
       </div>
     </div>
-    <div class="imgph reveal" style="aspect-ratio:1/1"><small>Mapa o fachada (reemplazar por mapa embebido o imagen)</small></div>
   </div>
 </section>
 
+<!-- 3. METODOLOGIA -->
+<section id="metodologia" style="background:var(--crema)">
+  <div class="wrap">
+    <div class="meta-head">
+      <div class="reveal">
+        <h2 class="big">Dos idiomas y aprendizaje activo, desde el primer día.</h2>
+        <p class="muted" style="margin-top:1.2rem;font-size:1.1rem;max-width:52ch">Los niños aprenden inglés y español de forma natural, jugando. Nuestra propuesta se inspira en Montessori: ambientes preparados, materiales a su alcance y adultos que acompañan sin imponer.</p>
+      </div>
+      <div class="imgph reveal"><small>Foto de una clase o actividad (reemplazar, sin rostros identificables)</small></div>
+    </div>
+    <div class="benes">
+      <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h7M8 3v2c0 4-2 6-4 7M5 9c0 2 2 4 5 5"/><path d="M13 19l4-9 4 9M14.5 16h5"/></svg></div><h3>Bilingüe de verdad</h3><p>Inglés y español integrados en el juego y la rutina diaria.</p></div>
+      <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M9 4h6v3a3 3 0 0 1-6 0zM7 11h10l-1 9H8z"/><path d="M12 7v4"/></svg></div><h3>Aprender jugando</h3><p>Cada actividad tiene un propósito: explorar, crear y descubrir.</p></div>
+      <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></div><h3>Cámaras en vivo</h3><p>Las familias ven a sus hijos en tiempo real, de forma privada y segura.</p></div>
+      <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.5-3.6"/></svg></div><h3>Cuidado y confianza</h3><p>Un equipo cálido y protocolos claros para tu tranquilidad.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. AREAS -->
+<section id="areas" style="background:var(--crema)">
+  <div class="wrap">
+    <h2 class="big reveal">Espacios pensados para ellos.</h2>
+    <div class="gal reveal">
+      <figure class="g1"><small>Reemplazar por foto real</small><span>Sala de psicomotricidad</span></figure>
+      <figure class="g2"><small>Reemplazar por foto real</small><span>Aulas</span></figure>
+      <figure class="g3"><small>Reemplazar por foto real</small><span>Áreas de juego</span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TESTIMONIOS -->
+<section id="testimonios">
+  <div class="wrap">
+    <h2 class="big reveal">Lo que dicen las familias.</h2>
+    <div class="quotes">
+      <div class="quote reveal"><div class="mark">“</div><p>[Testimonio real de una familia. Reemplazar con una frase corta y auténtica, con permiso.]</p><div class="who"><span class="av">M</span><div><b>[Nombre]</b><span>Mamá de [nivel]</span></div></div></div>
+      <div class="quote reveal"><div class="mark">“</div><p>[Testimonio real de una familia. Reemplazar con una frase corta y auténtica, con permiso.]</p><div class="who"><span class="av">J</span><div><b>[Nombre]</b><span>Papá de [nivel]</span></div></div></div>
+      <div class="quote reveal"><div class="mark">“</div><p>[Testimonio real de una familia. Reemplazar con una frase corta y auténtica, con permiso.]</p><div class="who"><span class="av">R</span><div><b>[Nombre]</b><span>Mamá de [nivel]</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. INSCRIPCIONES -->
+<section class="sky" id="inscribe">
+  <div class="wrap inscribe">
+    <h2 class="reveal">Agenda una visita y conoce Jumperssori.</h2>
+    <p class="reveal">Ven a conocer nuestros espacios y contanos sobre tu peque. Estamos para acompañarte.</p>
+    <div class="cta-row reveal">
+      <a href="https://wa.me/591XXXXXXXX" class="btn btn-p" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+    <div class="contact-strip reveal">
+      <span><svg class="ico" viewBox="0 0 24 24" style="stroke:var(--tinta)"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/><path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg>[Dirección]</span>
+      <a href="tel:+591"><svg class="ico" viewBox="0 0 24 24" style="stroke:var(--tinta)"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>[Teléfono]</a>
+      <a href="mailto:info@jumperssori.com"><svg class="ico" viewBox="0 0 24 24" style="stroke:var(--tinta)"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m3 7 9 6 9-6"/></svg>info@jumperssori.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FOOTER -->
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <a href="#top" class="logo"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#ffd24d"/><path d="M17 6c4.2 2.8 6 6.5 6 11 0 3-1 5.6-2.4 7.6l-3.6-2.1-3.6 2.1C12 22.6 11 20 11 17c0-4.5 1.8-8.2 6-11Z" fill="#ff914d"/><circle cx="17" cy="14.5" r="2.2" fill="#2f6fa3"/></svg> Jumperssori</a>
-      <nav class="fmenu">
-        <a href="#somos">Nosotros</a><a href="#propuesta">Propuesta</a><a href="#sedes">Sedes</a>
-        <a href="#vivo">En Vivo</a><a href="#contacto">Contacto</a>
-        <a href="https://camaras.jumperssori.com">Ingresar en vivo</a>
-      </nav>
+      <div class="col">
+        <a href="#top" class="logo on-dark"><span class="top"><i></i>Centro Infantil Bilingüe<i></i></span><span class="word">Jumperssori</span></a>
+        <p style="margin-top:1rem;max-width:34ch">Tus hijos aprenden jugando, en dos idiomas.</p>
+        <div class="social">
+          <a href="[URL Facebook]" aria-label="Facebook"><svg class="ico" viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v2H7"/></svg></a>
+          <a href="[URL Instagram]" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.2"/><path d="M16.5 7.5v.01"/></svg></a>
+        </div>
+      </div>
+      <div class="col">
+        <h4>Centro</h4>
+        <a href="#niveles">Niveles</a><a href="#metodologia">Metodología</a><a href="#areas">Áreas</a><a href="#testimonios">Familias</a>
+      </div>
+      <div class="col">
+        <h4>Contacto</h4>
+        <p>[Dirección]</p>
+        <a href="tel:+591">[Teléfono / WhatsApp]</a>
+        <a href="mailto:info@jumperssori.com">info@jumperssori.com</a>
+        <a href="https://camaras.jumperssori.com">Jumperssori en Vivo</a>
+      </div>
     </div>
-    <div class="copy">© <span id="y"></span> Jumperssori · Centro Infantil, [Ciudad]. Todos los derechos reservados.</div>
+    <div class="copy">© <span id="y"></span> Centro Infantil Bilingüe Jumperssori. Todos los derechos reservados.</div>
   </div>
 </footer>
 
