@@ -39,15 +39,10 @@
   .btn:active{transform:translateY(3px)}
   @media(hover:hover) and (pointer:fine){ .btn-p:hover{background:#ffa066} .btn-line:hover{background:rgba(51,48,43,.06)} }
 
-  /* LOGO (aproximación del wordmark real; reemplazar por PNG de Canva) */
-  .logo{display:inline-flex;flex-direction:column;gap:2px;line-height:1}
-  .logo .top{display:flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:600;font-size:.52rem;letter-spacing:.14em;color:var(--gris);text-transform:uppercase}
-  .logo .top i{width:6px;height:6px;border-radius:50%;display:inline-block}
-  .logo .top i:first-child{background:var(--azul)}
-  .logo .top i:last-child{background:var(--menta)}
-  .logo .word{font-family:var(--display);font-weight:800;font-style:italic;font-size:1.5rem;color:var(--naranja)}
-  .logo.on-dark .top{color:rgba(255,255,255,.72)}
-  .logo.on-dark .word{color:#fff}
+  /* LOGO (artes reales exportadas de Canva) */
+  .logo{display:inline-flex;align-items:center}
+  .logo-img{height:50px;width:auto;display:block}
+  footer .logo-img{height:44px}
 
   /* NAV */
   header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s ease,box-shadow .3s ease}
@@ -197,8 +192,7 @@
 <header id="hdr">
   <div class="wrap nav">
     <a href="#top" class="logo" aria-label="Centro Infantil Bilingüe Jumperssori">
-      <span class="top"><i></i>Centro Infantil Bilingüe<i></i></span>
-      <span class="word">Jumperssori</span>
+      <img src="assets/logo-nav.png" alt="Centro Infantil Bilingüe Jumperssori" class="logo-img" width="925" height="395">
     </a>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
       <svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -318,7 +312,7 @@
   <div class="wrap">
     <div class="fgrid">
       <div class="col">
-        <a href="#top" class="logo on-dark"><span class="top"><i></i>Centro Infantil Bilingüe<i></i></span><span class="word">Jumperssori</span></a>
+        <a href="#top" class="logo"><img src="assets/logo-nav-white.png" alt="Jumperssori" class="logo-img" width="925" height="395"></a>
         <p style="margin-top:1rem;max-width:34ch">Tus hijos aprenden jugando, en dos idiomas.</p>
         <div class="social">
           <a href="[URL Facebook]" aria-label="Facebook"><svg class="ico" viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v2H7"/></svg></a>
