@@ -1,7 +1,12 @@
 ---
+# Deploy a cPanel según el clon que lo ejecuta (detecta por la ruta del repositorio):
+#   - Clon cuya ruta termina en "-prod" → publica en public_html (producción: apex + www).
+#   - Cualquier otro clon               → publica en el docroot de staging.
+# El default es staging: si la detección fallara, NUNCA publica a producción por accidente.
 deployment:
   tasks:
-    # Docroot real del subdominio staging (confirmado en cPanel, bajo public_html).
-    - export DEPLOYPATH=/home2/jumperss/public_html/staging.jumperssori.com/
-    - /bin/cp -R *.html "$DEPLOYPATH"
+    - case "$PWD" in *-prod) export DEPLOYPATH=/home2/jumperss/public_html/ ;; *) export DEPLOYPATH=/home2/jumperss/public_html/staging.jumperssori.com/ ;; esac
+    - /bin/cp -R index.html "$DEPLOYPATH"
     - /bin/cp -R assets "$DEPLOYPATH" 2>/dev/null || true
+    # particles.html (prueba) solo va a staging, no a producción:
+    - case "$PWD" in *-prod) : ;; *) /bin/cp -R particles.html "$DEPLOYPATH" 2>/dev/null || true ;; esac

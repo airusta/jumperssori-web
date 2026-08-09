@@ -5,6 +5,7 @@ Separado del sistema de cámaras (`camaras-server-v2`). Se hostea en el cPanel d
 (Neothek · «Plan Plata», `coyote.smart-hosts.com`) y se publica vía **Cloudflare** (DNS autoritativo).
 
 > **Última actualización:** 2026-08-01
+> 📖 **Para operar y mantener el sitio: [MANUAL-OPERACION.md](MANUAL-OPERACION.md).**
 > Plan e infraestructura: `camaras-server-v2/docs/PLAN-WEB-INSTITUCIONAL.md` · limitación del hosting: DT-003.
 
 ---
