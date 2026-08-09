@@ -63,7 +63,8 @@
   .menu{display:flex;gap:1.9rem;align-items:center;font-family:var(--display);font-weight:600;color:var(--tinta)}
   .menu a{transition:color .2s ease}
   .menu .cta{color:#fff;background:var(--azul);padding:.45em 1.1em;border-radius:999px}
-  @media(hover:hover) and (pointer:fine){ .menu a:hover{color:var(--naranja-d)} .menu .cta:hover{background:var(--azul-ink);color:#fff} }
+  .menu .live{border:2px solid var(--azul);color:var(--azul-ink);padding:.38em 1em;border-radius:999px}
+  @media(hover:hover) and (pointer:fine){ .menu a:hover{color:var(--naranja-d)} .menu .cta:hover{background:var(--azul-ink);color:#fff} .menu .live:hover{background:var(--azul);color:#fff} }
   .burger{display:none;background:none;border:0;color:var(--tinta);cursor:pointer;padding:.2em}
   .burger .ico{width:26px;height:26px}
 
@@ -120,6 +121,7 @@
   .bene .b-ic .ico{width:26px;height:26px;stroke-width:2}
   .bene h3{font-size:1.15rem;margin-bottom:.3rem}
   .bene p{color:var(--gris);font-size:.96rem;line-height:1.55}
+  .bene .bene-link{display:inline-block;margin-top:.5rem;font-family:var(--display);font-weight:600;color:var(--azul-ink)}
 
   /* AREAS (galería) */
   .gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:18px;margin-top:52px;min-height:440px}
@@ -205,7 +207,7 @@
       background:var(--crema);padding:24px;box-shadow:0 16px 30px -14px rgba(51,48,43,.3);
       transform:translateY(-140%);transition:transform .34s var(--ease-drawer);pointer-events:none}
     header.open .menu{transform:none;pointer-events:auto}
-    .menu a{font-size:1.2rem}.menu .cta{align-self:stretch;text-align:center}
+    .menu a{font-size:1.2rem}.menu .cta,.menu .live{align-self:stretch;text-align:center}
   }
   @media(max-width:560px){
     .grid3,.benes,.quotes{grid-template-columns:1fr}
@@ -236,6 +238,7 @@
       <a href="#metodologia">Metodología</a>
       <a href="#areas">Áreas</a>
       <a href="#testimonios">Familias</a>
+      <a href="https://camaras.jumperssori.com" class="live">Ingresar en vivo</a>
       <a href="#inscribe" class="cta">Agenda una visita</a>
     </nav>
   </div>
@@ -295,7 +298,7 @@
     <div class="benes">
       <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h7M8 3v2c0 4-2 6-4 7M5 9c0 2 2 4 5 5"/><path d="M13 19l4-9 4 9M14.5 16h5"/></svg></div><h3>Bilingüe de verdad</h3><p>Inglés y español integrados en el juego y la rutina diaria.</p></div>
       <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M9 4h6v3a3 3 0 0 1-6 0zM7 11h10l-1 9H8z"/><path d="M12 7v4"/></svg></div><h3>Aprender jugando</h3><p>Cada actividad tiene un propósito: explorar, crear y descubrir.</p></div>
-      <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></div><h3>Cámaras en vivo</h3><p>Las familias ven a sus hijos en tiempo real, de forma privada y segura.</p></div>
+      <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></div><h3>Cámaras en vivo</h3><p>Las familias ven a sus hijos en tiempo real, de forma privada y segura.</p><a href="https://camaras.jumperssori.com" class="bene-link">Ir a la plataforma →</a></div>
       <div class="bene reveal"><div class="b-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.5-3.6"/></svg></div><h3>Cuidado y confianza</h3><p>Un equipo cálido y protocolos claros para tu tranquilidad.</p></div>
     </div>
   </div>
