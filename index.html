@@ -142,6 +142,28 @@
   .quote b{font-family:var(--display);display:block;font-size:.98rem}
   .quote .who span{color:var(--gris);font-size:.86rem}
 
+  /* REDES (carrusel) */
+  .social-carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:10px 4px 22px;margin-top:44px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .social-carousel::-webkit-scrollbar{height:8px}
+  .social-carousel::-webkit-scrollbar-thumb{background:var(--linea);border-radius:999px}
+  .scard{scroll-snap-align:center;flex:0 0 auto;width:min(270px,80vw);min-height:230px;border-radius:26px;
+    padding:28px 26px;color:#fff;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;
+    box-shadow:0 14px 30px -18px rgba(51,48,43,.5);transition:transform .28s var(--ease-out)}
+  .scard .s-ic{width:54px;height:54px;border-radius:16px;background:rgba(255,255,255,.22);display:grid;place-items:center}
+  .scard .s-ic svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .scard h3{font-size:1.4rem}
+  .scard .handle{opacity:.92;font-weight:600;font-size:.95rem;word-break:break-word}
+  .scard .follow{margin-top:auto;align-self:flex-start;background:#fff;color:var(--tinta);
+    font-family:var(--display);font-weight:600;padding:.5em 1.3em;border-radius:999px;font-size:.95rem}
+  .scard.fb{background:var(--azul)}
+  .scard.ig{background:var(--naranja)}
+  .scard.tk{background:var(--menta)}
+  .scard.wa{background:var(--amarillo);color:var(--tinta)}
+  .scard.wa .s-ic{background:rgba(60,44,34,.14)} .scard.wa .s-ic svg{stroke:var(--tinta)}
+  .scard.wa .follow{background:var(--tinta);color:#fff}
+  @media(hover:hover) and (pointer:fine){ .scard:hover{transform:translateY(-6px)} }
+
   /* INSCRIPCIONES */
   .inscribe{text-align:center;color:var(--tinta)}
   .inscribe h2{font-size:clamp(2.1rem,4.4vw,3.2rem);max-width:20ch;margin:0 auto}
@@ -299,6 +321,36 @@
       <div class="quote reveal"><div class="mark">“</div><p>[Testimonio real de una familia. Reemplazar con una frase corta y auténtica, con permiso.]</p><div class="who"><span class="av">M</span><div><b>[Nombre]</b><span>Mamá de [nivel]</span></div></div></div>
       <div class="quote reveal"><div class="mark">“</div><p>[Testimonio real de una familia. Reemplazar con una frase corta y auténtica, con permiso.]</p><div class="who"><span class="av">J</span><div><b>[Nombre]</b><span>Papá de [nivel]</span></div></div></div>
       <div class="quote reveal"><div class="mark">“</div><p>[Testimonio real de una familia. Reemplazar con una frase corta y auténtica, con permiso.]</p><div class="who"><span class="av">R</span><div><b>[Nombre]</b><span>Mamá de [nivel]</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Síguenos (carrusel de redes) -->
+<section class="cream2" id="redes">
+  <div class="wrap">
+    <h2 class="big reveal center" style="text-align:center">Seguinos y no te pierdas nada.</h2>
+    <p class="muted reveal center" style="text-align:center;max-width:46ch;margin:.8rem auto 0">Fotos del día a día, novedades y actividades. Deslizá para conocernos.</p>
+    <div class="social-carousel reveal">
+      <a class="scard fb" href="https://www.facebook.com/centroinfantiljumperssori" target="_blank" rel="noopener">
+        <div class="s-ic"><svg viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v2H7"/></svg></div>
+        <h3>Facebook</h3><span class="handle">Centro Infantil Jumperssori</span>
+        <span class="follow">Seguir</span>
+      </a>
+      <a class="scard ig" href="https://www.instagram.com/jumperssori_/" target="_blank" rel="noopener">
+        <div class="s-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.2"/><path d="M16.5 7.5v.01"/></svg></div>
+        <h3>Instagram</h3><span class="handle">@jumperssori_</span>
+        <span class="follow">Seguir</span>
+      </a>
+      <a class="scard tk" href="https://www.tiktok.com/@jumperssori_" target="_blank" rel="noopener">
+        <div class="s-ic"><svg viewBox="0 0 24 24"><path d="M21 7.9v4a9.9 9.9 0 0 1-5-2v4.6a6.5 6.5 0 1 1-8-6.3v4.3a2.5 2.5 0 1 0 4 2V7h4.1a6 6 0 0 0 4.9 4.9z"/></svg></div>
+        <h3>TikTok</h3><span class="handle">@jumperssori_</span>
+        <span class="follow">Seguir</span>
+      </a>
+      <a class="scard wa" href="https://wa.me/59175322827?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Jumperssori" target="_blank" rel="noopener">
+        <div class="s-ic"><svg viewBox="0 0 24 24"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9z"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg></div>
+        <h3>WhatsApp</h3><span class="handle">+591 75322827</span>
+        <span class="follow">Escribir</span>
+      </a>
     </div>
   </div>
 </section>
