@@ -19,97 +19,93 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/logo-nav.png">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: { extend: { fontFamily: { display: ["'Baloo 2'","sans-serif"], body: ["Nunito","sans-serif"] } } }
-  }
-</script>
 <style>
-  /* particles.js crea un <canvas> dentro de #particles-js */
-  #particles-js canvas { position:absolute; top:0; left:0; }
-  body { font-family:'Nunito',sans-serif; }
-  .display { font-family:'Baloo 2',sans-serif; }
+  :root{
+    --naranja:#FF914D; --naranja-d:#ec6f28; --tinta:#33302b;
+    --grad:linear-gradient(to top right,#FFFEFA,#9ecfee,#5FA7DA);
+    --fg:#2c6996; --fg-soft:rgba(51,48,43,.82); --line:#2c6996;
+    --tg-bg:rgba(255,255,255,.8); --tg-fg:#33302b; --tg-border:rgba(255,255,255,.6);
+    --display:'Baloo 2',system-ui,sans-serif; --body:'Nunito',system-ui,sans-serif;
+  }
+  html.dark{
+    --grad:linear-gradient(to top right,#0a1f2e,#123a52,#2c6996);
+    --fg:#fff; --fg-soft:rgba(255,255,255,.82); --line:#fff;
+    --tg-bg:rgba(255,255,255,.1); --tg-fg:#fff; --tg-border:rgba(255,255,255,.2);
+  }
+  *{margin:0;box-sizing:border-box}
+  body{font-family:var(--body);min-height:100svh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  #particles-js{position:fixed;inset:0;z-index:0;background:var(--grad);transition:background .5s ease}
+  #particles-js canvas{position:absolute;top:0;left:0}
+  .toggle{position:fixed;top:16px;right:16px;z-index:20;font-family:var(--display);font-weight:600;font-size:.9rem;
+    background:var(--tg-bg);color:var(--tg-fg);backdrop-filter:blur(8px);padding:.55em 1.1em;border-radius:999px;
+    border:2px solid var(--tg-border);cursor:pointer;box-shadow:0 8px 20px -8px rgba(0,0,0,.4);
+    transition:transform .15s ease,background .3s ease,color .3s ease}
+  .toggle:active{transform:scale(.95)}
+  .l-light{display:none} html.dark .l-dark{display:none} html.dark .l-light{display:inline}
+  main{position:relative;z-index:10;min-height:100svh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:0 24px}
+  .logo{height:64px;width:auto;margin-bottom:32px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(2.3rem,7vw,3.8rem);line-height:1.1;
+    max-width:16ch;color:var(--fg);text-shadow:0 2px 10px rgba(0,0,0,.15)}
+  .sub{margin-top:20px;font-size:clamp(1.05rem,2vw,1.3rem);max-width:36ch;color:var(--fg-soft)}
+  .actions{margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .btn{font-family:var(--display);font-weight:600;font-size:1.02rem;padding:.8em 1.7em;border-radius:999px;
+    cursor:pointer;text-decoration:none;display:inline-block;transition:transform .18s ease,background .2s ease}
+  .btn-p{background:var(--naranja);color:var(--tinta);box-shadow:0 5px 0 var(--naranja-d)}
+  .btn-p:active{transform:translateY(3px);box-shadow:0 1px 0 var(--naranja-d)}
+  .btn-line{border:2.5px solid var(--line);color:var(--fg)}
+  @media(hover:hover) and (pointer:fine){.btn-p:hover{background:#ffa066}.btn-line:hover{background:rgba(255,255,255,.15)}}
+  @media(min-width:640px){.logo{height:80px}}
+  @media(prefers-reduced-motion:reduce){#particles-js{transition:none}.btn:active,.toggle:active{transform:none}}
 </style>
 </head>
-<body class="m-0">
+<body>
+  <div id="particles-js"></div>
 
-  <!-- Fondo de partículas con degradado de marca (claro/oscuro) -->
-  <div id="particles-js"
-       class="fixed inset-0 w-full h-full transition-colors duration-500
-              bg-gradient-to-tr from-[#FFFEFA] via-[#9ecfee] to-[#5FA7DA]
-              dark:from-[#0a1f2e] dark:via-[#123a52] dark:to-[#2c6996]"></div>
-
-  <!-- Toggle claro/oscuro, fijo arriba a la derecha -->
-  <button id="toggle" aria-label="Alternar modo claro y oscuro"
-          class="fixed top-4 right-4 z-20 display font-semibold text-sm
-                 bg-white/80 dark:bg-white/10 text-[#33302b] dark:text-white
-                 backdrop-blur px-4 py-2 rounded-full shadow-lg
-                 border-2 border-white/60 dark:border-white/20
-                 transition active:scale-95">
-    <span class="dark:hidden">🌙 Modo oscuro</span>
-    <span class="hidden dark:inline">☀️ Modo claro</span>
+  <button class="toggle" id="toggle" aria-label="Alternar modo claro y oscuro">
+    <span class="l-dark">🌙 Modo oscuro</span><span class="l-light">☀️ Modo claro</span>
   </button>
 
-  <!-- Contenido centrado, encima de las partículas -->
-  <main class="relative z-10 min-h-[100svh] flex flex-col items-center justify-center text-center px-6">
-    <img src="assets/logo-nav.png" alt="Jumperssori"
-         class="h-16 sm:h-20 mb-8 drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
-    <h1 class="display font-extrabold text-4xl sm:text-6xl max-w-4xl leading-tight
-               text-[#2c6996] dark:text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
-      Espacio para crecer, libertad para aprender.
-    </h1>
-    <p class="mt-5 text-lg sm:text-xl max-w-xl text-[#33302b]/80 dark:text-white/80">
-      Un centro infantil bilingüe, cálido y seguro, inspirado en Montessori.
-    </p>
-    <div class="mt-8 flex flex-wrap gap-4 justify-center">
-      <a href="https://wa.me/59175322827?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Jumperssori" target="_blank" rel="noopener"
-         class="display font-semibold text-[#33302b] bg-[#FF914D] px-7 py-3 rounded-full
-                shadow-[0_5px_0_#ec6f28] active:translate-y-[3px] active:shadow-[0_1px_0_#ec6f28] transition">
-        Contáctanos
-      </a>
-      <a href="sitio.html" class="display font-semibold px-7 py-3 rounded-full border-[2.5px]
-                         border-[#2c6996] dark:border-white text-[#2c6996] dark:text-white
-                         hover:bg-white/20 transition">
-        Ir al sitio
-      </a>
+  <main>
+    <img class="logo" src="assets/logo-nav.png" alt="Jumperssori" width="925" height="395" fetchpriority="high">
+    <h1>Espacio para crecer, libertad para aprender.</h1>
+    <p class="sub">Un centro infantil bilingüe, cálido y seguro, inspirado en Montessori.</p>
+    <div class="actions">
+      <a class="btn btn-p" href="https://wa.me/59175322827?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Jumperssori" target="_blank" rel="noopener">Contáctanos</a>
+      <a class="btn btn-line" href="sitio.html">Ir al sitio</a>
     </div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    // Toggle claro/oscuro (clase 'dark' en <html>)
-    const html = document.documentElement;
-    document.getElementById("toggle").addEventListener("click", () => {
-      html.classList.toggle("dark");
+    // Toggle claro/oscuro (inmediato)
+    document.getElementById("toggle").addEventListener("click", function(){
+      document.documentElement.classList.toggle("dark");
     });
-
-    // particles.js con colores de marca Jumperssori
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 120, density: { enable: true, value_area: 900 } },
-        color: { value: ["#5FA7DA", "#FFE680", "#FF914D", "#5CB693"] },
-        shape: { type: "circle" },
-        opacity: { value: 0.7, random: true, anim: { enable: true, speed: 0.8, opacity_min: 0.25, sync: false } },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: "#5FA7DA", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 1.2, direction: "none", random: true, straight: false, out_mode: "out" }
-      },
-      interactivity: {
-        detect_on: "window",
-        events: {
-          onhover: { enable: true, mode: "bubble" },
-          onclick: { enable: true, mode: "bubble" },
-          resize: true
+  </script>
+  <!-- Partículas: decorativas, cargan después sin bloquear el render -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" defer></script>
+  <script>
+    window.addEventListener("load", function(){
+      if (!window.particlesJS) return;
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 120, density: { enable: true, value_area: 900 } },
+          color: { value: ["#5FA7DA", "#FFE680", "#FF914D", "#5CB693"] },
+          shape: { type: "circle" },
+          opacity: { value: 0.7, random: true, anim: { enable: true, speed: 0.8, opacity_min: 0.25, sync: false } },
+          size: { value: 3, random: true },
+          line_linked: { enable: true, distance: 150, color: "#5FA7DA", opacity: 0.4, width: 1 },
+          move: { enable: true, speed: 1.2, direction: "none", random: true, straight: false, out_mode: "out" }
         },
-        modes: {
-          bubble: { distance: 200, size: 9, duration: 2, opacity: 1, speed: 3 },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
+        interactivity: {
+          detect_on: "window",
+          events: { onhover: { enable: true, mode: "bubble" }, onclick: { enable: true, mode: "bubble" }, resize: true },
+          modes: { bubble: { distance: 200, size: 9, duration: 2, opacity: 1, speed: 3 }, push: { particles_nb: 4 } }
+        },
+        retina_detect: true
+      });
     });
   </script>
 </body>
