@@ -185,7 +185,8 @@ exportar la nueva versión desde Canva (PNG **transparente**), reemplazar el arc
 | **Los cambios no aparecen** | Caché del navegador → **Ctrl+F5** (o recarga forzada en el móvil). O falta **Deploy** en cPanel. |
 | **Íconos/enlaces no funcionan** | Igual que arriba: falta desplegar la última versión. |
 | **El deploy falla en cPanel** | Puede ser el shell del hosting. Alternativa: subir los archivos a mano por **Administrador de archivos** al docroot. |
-| **No se puede clonar por SSH** | Es **DT-003** (hosting con OpenSSH viejo): por eso el repo es **público** y se clona por **HTTPS**. |
+| **No se puede clonar por SSH** | Es **DT-003** (hosting con OpenSSH viejo): por eso el clon usa **HTTPS**. |
+| **"The system could not contact the remote repository"** | El clon usa HTTPS **sin credenciales** y el repo pasó a ser **privado**: GitHub responde 401 y cPanel no puede traer nada. Detectado el 25-ago-2026, con producción congelada en el commit del 19-ago. Ver §10. |
 | **El certificado da error** | Poner el subdominio en **Proxied** (naranja) en Cloudflare + SSL **Full**. |
 
 ---
@@ -209,3 +210,41 @@ exportar la nueva versión desde Canva (PNG **transparente**), reemplazar el arc
 - **Hosting/cPanel:** proveedor **Neothek** (`portal.neothek.com` → Soporte). Ticket abierto por DT-003 (SSH).
 - **DNS/dominio:** **Cloudflare** (DNS autoritativo).
 - **Cámaras:** proyecto `camaras-server-v2` (server on-premise en el jardín).
+
+
+---
+
+## 10. Deploy bloqueado: HTTPS anónimo contra un repo privado (25-ago-2026)
+
+**Síntoma.** En cPanel → Git Version Control aparece *"The system could not contact the remote
+repository"* y *"could not retrieve the remote branches"*. **Update from Remote** no trae nada y el
+sitio queda congelado en el último commit desplegado.
+
+**Causa.** El clon `jumperssori-web-prod` apunta a `https://github.com/airusta/jumperssori-web.git`
+**sin credenciales**. Ese esquema solo funciona con repositorios públicos; el repo hoy es
+**privado**, así que GitHub responde **401**. Comprobación rápida desde cualquier equipo:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}
+" "https://github.com/airusta/jumperssori-web.git/info/refs?service=git-upload-pack"
+# 200 → público (el deploy funcionaría) · 401 → privado (el deploy está roto)
+```
+
+**Cómo desbloquear ahora (sin tocar nada más).** El sitio es estático y el deploy solo copia
+archivos a `public_html`; subirlos a mano llega al mismo resultado y **no ensucia el clon de git**
+(el repo vive en `/home2/jumperss/repositories/`, el sitio en `/home2/jumperss/public_html/`):
+
+1. cPanel → **Administrador de archivos** → `public_html`.
+2. Subir `index.html` y `sitio.html` (sobrescribir). Si cambiaron imágenes, también `assets/`.
+3. Abrir `https://jumperssori.com` con **Ctrl+F5**.
+
+**Cómo arreglarlo de fondo** (elegir una):
+
+| Opción | Qué implica | Nota |
+|---|---|---|
+| **Volver el repo a público** | Restaura el diseño original (DT-003 asumía repo público + HTTPS). Cero configuración. | Antes conviene revisar que el repo no exponga detalles de infraestructura que no quieras públicos — este manual, por ejemplo. |
+| **Token de acceso en el remoto** | Con Terminal de cPanel: `git remote set-url origin https://<TOKEN>@github.com/airusta/jumperssori-web.git`. Usar un token *fine-grained*, solo este repo, permiso *Contents: read*. | El token queda en texto plano en el servidor; rotarlo si se filtra. |
+| **Deploy key SSH** | Igual que en el edge de cámaras: par de claves en el hosting, la pública como *deploy key* de solo lectura en GitHub, remoto `git@github.com:...`. | Bloqueado por **DT-003** mientras el hosting tenga OpenSSH viejo. |
+
+**Verificación posterior.** Que el HEAD del clon en cPanel coincida con el último commit de la rama
+`production` en GitHub, y que el sitio muestre el cambio con Ctrl+F5.
