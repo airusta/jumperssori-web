@@ -97,6 +97,15 @@ En **Cloudflare → DNS**, cambiar los registros del apex y www (hoy apuntan a C
 
 ---
 
+### 2.4 El botón flotante de WhatsApp
+
+Ambas páginas (`index.html` y `sitio.html`) llevan un botón verde fijo abajo a la derecha que abre
+el chat del centro y **acompaña el scroll**. Para cambiar el número o el mensaje, buscá `wa-fab` en
+cada archivo y editá el `href` (formato `https://wa.me/<número sin +>?text=<mensaje url-encoded>`).
+Ojo: el número también aparece en los datos estructurados de SEO (`telephone`), en los botones
+"Contáctanos"/"Agenda una visita" y en la sección de contacto — cambialos todos a la vez con
+buscar-y-reemplazar de `59175322827`.
+
 ## 4. Publicar a producción (cada vez, después del §3)
 
 1. Fusionar lo probado de `main` a `production` y subir:
