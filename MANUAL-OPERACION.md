@@ -214,7 +214,14 @@ exportar la nueva versión desde Canva (PNG **transparente**), reemplazar el arc
 
 ---
 
-## 10. Deploy bloqueado: HTTPS anónimo contra un repo privado (25-ago-2026)
+## 10. Incidente resuelto: deploy bloqueado por repo privado (25-ago-2026)
+
+> **Estado: ✅ RESUELTO el 25-ago-2026.** Se volvió el repositorio **público** (la opción que restaura
+> el diseño original de DT-003) y el deploy de cPanel volvió a funcionar. Verificado: GitHub responde
+> 200 a la consulta anónima, y producción ya sirve el botón de WhatsApp y el enlace al dominio propio
+> del portal. Se revisó el historial completo antes de publicar: **no contiene `.env`, claves ni
+> tokens**. Queda esta sección como registro, porque el síntoma puede repetirse si el repo vuelve a
+> privado.
 
 **Síntoma.** En cPanel → Git Version Control aparece *"The system could not contact the remote
 repository"* y *"could not retrieve the remote branches"*. **Update from Remote** no trae nada y el
@@ -238,7 +245,7 @@ archivos a `public_html`; subirlos a mano llega al mismo resultado y **no ensuci
 2. Subir `index.html` y `sitio.html` (sobrescribir). Si cambiaron imágenes, también `assets/`.
 3. Abrir `https://jumperssori.com` con **Ctrl+F5**.
 
-**Cómo arreglarlo de fondo** (elegir una):
+**Cómo se arregló** (25-ago-2026): se eligió la primera opción — repositorio público.
 
 | Opción | Qué implica | Nota |
 |---|---|---|
@@ -248,3 +255,10 @@ archivos a `public_html`; subirlos a mano llega al mismo resultado y **no ensuci
 
 **Verificación posterior.** Que el HEAD del clon en cPanel coincida con el último commit de la rama
 `production` en GitHub, y que el sitio muestre el cambio con Ctrl+F5.
+
+**Consecuencia de tener el repo público.** No hay secretos en el historial (verificado), pero este
+manual expone detalles de infraestructura de bajo riesgo: la ruta del hosting
+(`/home2/jumperss/...`) y el proveedor. No permiten acceder a nada sin credenciales, aunque sirven
+para reconocimiento. Si en algún momento se prefiere ocultarlos, la vía limpia es mover este manual
+al repositorio privado de la plataforma y dejar aquí solo el sitio. **Nunca** commitear credenciales
+a este repo mientras sea público.
