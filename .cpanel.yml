@@ -7,5 +7,5 @@ deployment:
   tasks:
     - case "$PWD" in *-prod) export DEPLOYPATH=/home2/jumperss/public_html/ ;; *) export DEPLOYPATH=/home2/jumperss/public_html/staging.jumperssori.com/ ;; esac
     # index.html = pantalla de bienvenida (partículas) · sitio.html = sitio completo
-    - /bin/cp -R index.html sitio.html robots.txt sitemap.xml "$DEPLOYPATH"
+    - /bin/cp -R index.html sitio.html robots.txt sitemap.xml .htaccess "$DEPLOYPATH"
     - /bin/cp -R assets "$DEPLOYPATH" 2>/dev/null || true
