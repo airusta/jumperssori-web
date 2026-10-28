@@ -208,7 +208,11 @@
   .faq .a a{color:var(--azul-ink);font-weight:600}
 
   /* ADMISIONES 2027 */
-  .adm{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
+  .adm{display:grid;grid-template-columns:1fr;gap:40px;justify-items:center;text-align:center}
+  .adm-img{max-width:1024px;width:100%}
+  .adm h2.big{margin:0 auto}
+  .adm .muted{margin-left:auto;margin-right:auto}
+  .adm .chips{justify-content:center}
   .adm-img{border-radius:26px;overflow:hidden;box-shadow:0 22px 44px -24px rgba(51,48,43,.5);background:var(--linea)}
   .adm-img img{display:block;width:100%;height:auto}
   .adm .tag{display:inline-block;font-family:var(--display);font-weight:700;color:#fff;background:var(--naranja-d);padding:.3em 1em;border-radius:999px;margin-bottom:1rem}
@@ -233,7 +237,7 @@
   .btn-w{background:#fff;color:var(--tinta)}
   @media(hover:hover) and (pointer:fine){ .btn-w:hover{background:var(--crema)} }
 
-  @media(max-width:920px){ .adm{grid-template-columns:1fr;gap:32px} .hours{grid-template-columns:1fr 1fr} }
+  @media(max-width:920px){ .adm{gap:32px} .hours{grid-template-columns:1fr 1fr} }
   @media(max-width:560px){ .hours{grid-template-columns:1fr} .map-wrap iframe{height:280px} }
 
   /* FOOTER */
@@ -362,15 +366,15 @@
 </section>
 
 <!-- 2b. ADMISIONES 2027 -->
-<!-- Imagen: guardar el afiche como assets/admisiones-2027.jpg (vertical, ~1024x1536). Solo con autorización de la familia del niño. -->
+<!-- Imagen: assets/admisiones-2027.jpg (afiche horizontal 1024x391). Fotos de niños solo con autorización escrita de la familia. -->
 <section id="admisiones" style="background:var(--crema)">
   <div class="wrap adm">
     <div class="adm-img reveal">
-      <img src="assets/admisiones-2027.jpg" alt="Admisiones 2027 del Centro Infantil Bilingüe Jumperssori: pre-kínder y kínder en El Alto" width="1024" height="1536" loading="lazy" decoding="async">
+      <img src="assets/admisiones-2027.jpg" alt="Admisiones 2027 del Centro Infantil Bilingüe Jumperssori: pre-kínder y kínder en El Alto" width="1024" height="391" loading="lazy" decoding="async">
     </div>
     <div class="reveal">
       <span class="tag">Admisiones 2027 abiertas</span>
-      <h2 class="big">Inscripciones 2027 para pre-kínder y kínder.</h2>
+      <h2 class="big">Inscripciones 2027 para <span style="white-space:nowrap">pre-kínder</span> y kínder.</h2>
       <p class="muted" style="margin-top:1.1rem;font-size:1.1rem;max-width:50ch">Nivel inicial bilingüe en Ciudad Satélite, El Alto: un lugar donde jugar, aprender y crecer en español e inglés. Los cupos por sala son limitados; agenda una visita y te mostramos los espacios.</p>
       <div class="chips"><span>Kínder</span><span>Pre-kínder</span></div>
       <a href="https://wa.me/59175322827?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20admisiones%202027%20de%20Jumperssori" class="btn btn-p" target="_blank" rel="noopener">Quiero inscribir a mi hijo/a</a>
