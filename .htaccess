@@ -13,6 +13,12 @@ RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://jumperssori.com%{REQUEST_URI} [R=301,L]
 
+# Una sola URL para el sitio: el contenido completo vive en "/" (2026-10).
+# /sitio.html (la página vieja) y /index.html → "/" con 301, en el mismo host (sirve también para staging).
+# THE_REQUEST mira lo que pidió el navegador, así no entra en bucle con el DirectoryIndex interno.
+RewriteCond %{THE_REQUEST} \s/+(index|sitio)\.html[\s?] [NC]
+RewriteRule ^(index|sitio)\.html$ / [R=301,L]
+
 # Texto siempre en UTF-8 (los acentos del title/description en los resultados de búsqueda)
 AddDefaultCharset UTF-8
 

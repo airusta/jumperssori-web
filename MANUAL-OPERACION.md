@@ -99,7 +99,7 @@ En **Cloudflare → DNS**, cambiar los registros del apex y www (hoy apuntan a C
 
 ### 2.4 El botón flotante de WhatsApp
 
-Ambas páginas (`index.html` y `sitio.html`) llevan un botón verde fijo abajo a la derecha que abre
+La página (`index.html`) lleva un botón verde fijo abajo a la derecha que abre
 el chat del centro y **acompaña el scroll**. Para cambiar el número o el mensaje, buscá `wa-fab` en
 cada archivo y editá el `href` (formato `https://wa.me/<número sin +>?text=<mensaje url-encoded>`).
 Ojo: el número también aparece en los datos estructurados de SEO (`telephone`), en los botones
@@ -242,7 +242,7 @@ archivos a `public_html`; subirlos a mano llega al mismo resultado y **no ensuci
 (el repo vive en `/home2/jumperss/repositories/`, el sitio en `/home2/jumperss/public_html/`):
 
 1. cPanel → **Administrador de archivos** → `public_html`.
-2. Subir `index.html` y `sitio.html` (sobrescribir). Si cambiaron imágenes, también `assets/`.
+2. Subir `index.html` (sobrescribir; `sitio.html` ya no se usa, redirige a `/`). Si cambiaron imágenes, también `assets/`.
 3. Abrir `https://jumperssori.com` con **Ctrl+F5**.
 
 **Cómo se arregló** (25-ago-2026): se eligió la primera opción — repositorio público.
